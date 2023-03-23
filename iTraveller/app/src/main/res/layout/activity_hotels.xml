@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Hotels"
+    tools:context=".MainActivity"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -12,43 +12,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Restaurants near me"
+        android:text="Resturant App"
         android:textSize="30sp"
         android:paddingBottom="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="642dp"
         android:gravity="center|top"
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/hotel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/city"
             android:layout_marginBottom="10dp"
-            android:textSize="20sp"
             android:hint="Enter hotel name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
 
         <Button
+            android:id="@+id/btnGetData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnGetData"
             android:layout_marginBottom="10dp"
             android:text="Search" />
 
+        <TextView
+            android:id="@+id/addressText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/locationButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Use Current Location" />
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="203dp">
 
             <TextView
+                android:id="@+id/result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/result"
-                android:textSize="20sp"
+                android:lineSpacingExtra="5dp"
                 android:padding="5dp"
-                android:lineSpacingExtra="5dp"/>
+                android:textSize="20sp" />
         </ScrollView>
 
 
