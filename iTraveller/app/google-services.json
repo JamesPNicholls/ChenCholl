@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "475416426644",
+    "firebase_url": "https://itraveller-381322-default-rtdb.firebaseio.com",
+    "project_id": "itraveller-381322",
+    "storage_bucket": "itraveller-381322.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475416426644:android:e6c4c40c777df7a7b81c81",
+        "android_client_info": {
+          "package_name": "com.example.itraveller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475416426644-274dhilf09scc01bo7ndvdnnaknico2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnra4ImC2JwdP2FunvDgGLyoodPIoWRQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475416426644-274dhilf09scc01bo7ndvdnnaknico2l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

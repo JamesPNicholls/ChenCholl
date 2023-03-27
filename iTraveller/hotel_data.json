@@ -1,0 +1,324 @@
+{
+    "hotels": {
+        "Inn At The Quay": {
+            "location": {
+                "lat": 49.1996869,
+                "lng": -122.9126745
+            },
+            "address": "900 Quayside Dr, New Westminster",
+            "picture": "AUjq9jkJIw8hc16WqtP0_1_qF99mni9fBLh0vbwdlZDm02D-H-Nwlyb8PFg4ZKLmDJTcJOQPCoQD_pwwVMw-FSbt0NbzPkE-ftXUMKiEzEe9IcvikjD08vqYC6rWfiPDxa_Z7KLWY5QGJKyTekuy5PidurQOgLdv8a9rl3a9AquJ_fCuAUWJ"
+        },
+        "Executive Plaza Hotel Coquitlam": {
+            "location": {
+                "lat": 49.24657329999999,
+                "lng": -122.8914167
+            },
+            "address": "405 North Rd #1, Coquitlam",
+            "picture": "AUjq9jmPFj6JmZ4Ha40O51VyHzwblBdhg8KZVbW7bpUwpYx7Ly9IFGTHF_d33pi_by-6oUn5iuJ48Ecu3v8GDEhboqFrxXV-mUWRXFOXx0WdEpabfpzRjvvOyGnyq-Ye06uDbvYXlowkROhONar3vzoDwF23KUB99pFN3zbPyxK9sevOJMkR"
+        },
+        "Vancouver West Cozy": {
+            "location": {
+                "lat": 49.2264428,
+                "lng": -123.1305466
+            },
+            "address": "1106 W 49th Ave, Vancouver",
+            "picture": "AUjq9jmpOta7RdFcxCS4dB7LxrQBanG8VkxLOoNWXsRNoyWnxUtKoC1RD3f9_5FyjWi1B1aFre0-eQGIBbLl6aQTeHATCxIgm8IiwIXusOm52ReckatlT1EwVEr5hgKudr3BnXkyVVt5u38P04YU0EbpuTW2WXNapCaqaOn8Y2vHpWBtoenN"
+        },
+        "King Edward house": {
+            "location": {
+                "lat": 49.2449905,
+                "lng": -123.1178189
+            },
+            "address": "560 W 29th Ave, Vancouver",
+            "picture": "AUjq9jl8g5h-UeWxcpLEe13OeqBM-E4jAOaMJgmjBTh14nvP9wTCNMqHfwAQvjEh-2UVJGDFrFAv9SAJNRD8JO3m8TlQ7RngEPi5wHXrhpDMapsCJBs6wFDzX71-yiHGF56wokvjxJ8lmz8ItUafoKnACk-Vwx1jcPvBpmlm42w-K34shRbd"
+        },
+        "Holiday Inn Vancouver-Centre (Broadway), an IHG Hotel": {
+            "location": {
+                "lat": 49.2634933,
+                "lng": -123.1204333
+            },
+            "address": "711 W. Broadway @, Heather St, Vancouver",
+            "picture": "AUjq9jmiGo3ks_pFYvcCEvrzFeybwtavtDCFJdqwz8MT7KjXzLDoB9o21gfpBNKvVEQfee2EOxgFN_137lgcjpz1O22L3ygp8riq6v5LWXyIpGaseDABy7h9Xn6EW0jwB9WZTmN0V9T8cNcr2NgJFsikimR6B4KPut90-8lHZfNMs0DxKvyU"
+        },
+        "North Vancouver Hotel": {
+            "location": {
+                "lat": 49.32626699999999,
+                "lng": -123.1198371
+            },
+            "address": "1800 Capilano Rd, North Vancouver",
+            "picture": "AUjq9jnBwyH68HQSefwCb-FpHn_3xT-bO1Ui5WzhmHL3NhnwCSYoWFTlUaceV-ktPXBuavbbrqih82jmE8OycVrjfNAEB4KI5X7IxCknvrt6jDbcdnSEJ7zAWvtYHgZk47q4vy6r4-sU4cBEjIpuoMqjA1AfW9mWdCHUX77378tXlddhGnig"
+        },
+        "Coast Tsawwassen Inn": {
+            "location": {
+                "lat": 49.033482,
+                "lng": -123.069264
+            },
+            "address": "1665 56 St, Delta",
+            "picture": "AUjq9jlbjfJKVwvho_A9c_JkUhHeBqxxUi07f8OSE5en-Q2ZHRs9CU8BTrBZrQJQMUQDsn-vSNJAafrzuLhGG30fRoVm4QOWsvvf_rwlVPBNwSvWawFwOz9NC_a5SGmf3qWEGVxapBA55b79RtO-rXy_e42vriUnCyztZXWO5HoiyVgyVdpG"
+        },
+        "Holiday Inn Express & Suites Riverport Richmond, an IHG Hotel": {
+            "location": {
+                "lat": 49.1360626,
+                "lng": -123.0685311
+            },
+            "address": "10688 No 6 Rd, Richmond",
+            "picture": "AUjq9jnLiEYYP1_fjNEdiQkY9UDCYA3J93ys2BLeEgrsGXf5RExRLCCpponew8U3gNKw3feQ-c7wZCW4kpDwd-z2SDL-ACL0Uf7nWvgiahW2eFT0nXeNwg8YIgP-_11pPWB5MnHCakwcT6Q6iGE5KAwmFIZnwq9ciIDDxYVlPp7W12THnj8-"
+        },
+        "The Met": {
+            "location": {
+                "lat": 49.204551,
+                "lng": -122.9057965
+            },
+            "address": "411 Columbia St, New Westminster",
+            "picture": "AUjq9jlEVpHqrojmCmtfAenG9yBGZwn1aZ09k5fkJ8lLYxQetjZO9EMNR5aPUlTeB38RpUNDP1P-_n7RKVmVfj_3zo4a6VZy9DkZZSc-noMV20wljAS9DflWRXk7AqcmNKhL7nHg2uYchmV8BWn18s4NCWehsEt5z0baqKu06XdwtUv2nv1d"
+        },
+        "Ramada by Wyndham Coquitlam": {
+            "location": {
+                "lat": 49.2420339,
+                "lng": -122.8848861
+            },
+            "address": "631 Lougheed Hwy., Coquitlam",
+            "picture": "AUjq9jkEqpT1dM0tMYywVpZQwfboiaKIYV_xj8zf3pOAAjV2rWuO7auwcfEkgaDI9-xdvobZ6TtntLVZumLFnSvEpuk1CQSrlTwq-Usv_dw5S7TrpbyLMi55NdYcc7C001BvfLLC5WpHURbf7n0YBcrzeu2sWVHbuoP1owHLdyWfipyLwk3l"
+        },
+        "Ocean Promenade Hotel": {
+            "location": {
+                "lat": 49.0167181,
+                "lng": -122.7900369
+            },
+            "address": "15611 Marine Dr, White Rock",
+            "picture": "AUjq9jngzRrlRNqXs76wIL7VJBTlXmPodvNAXkHpyBOxNeKuHGj0CyHHDP2EHp-RSbV7OBbJGQkqJ3twIVSCK-cdr3clyJ8Rj0uibmhst3amfd4kphn71gk3UhwuHh1Cr4HzjKoq8632LAwW29VZdCjQ0QXPJDIKnT9Va02UZtdqmxdOaukr"
+        },
+        "Poco Inn and Suites Hotel & Conference Centre": {
+            "location": {
+                "lat": 49.2605746,
+                "lng": -122.7585206
+            },
+            "address": "1545 Lougheed Hwy., Port Coquitlam",
+            "picture": "AUjq9jlNes4GS1mxg1kRc-GDLxn_FqwnZ_jgjW8nxDUgOC8l2YsxPrwUxKp0NuX7bzOSwtxc2J-yrEx6fuSDzZr0Hy455Z9940IFnEhgb_vyJ6XQZIW8zRsEdgKVbQmfxqqvbVXhKVAKbvpDwdJSGplAoCr1SSq3OB1M1USzYIXTDJ5o3-s-"
+        },
+        "Atrium Inn Vancouver": {
+            "location": {
+                "lat": 49.2814406,
+                "lng": -123.045319
+            },
+            "address": "2889 E Hastings St, Vancouver",
+            "picture": "AUjq9jmaphpTo-DfEAJelZQb2djGU1YARNs-DtUDjEEoZNIS1X8SQcqDsDsuJlJFFqDp1UmJBKID6UfiF8y8YwU9nKJBkUyrnUMPsRpTovMsNN8YkxhJV62xrQNaWj_pUiQk5kJKoLyB06tpg8AlV30m73By50K21yHtN3EltK--SS8fSSls"
+        },
+        "Muchen Villa Ltd": {
+            "location": {
+                "lat": 49.0541046,
+                "lng": -123.0658572
+            },
+            "address": "5677 28 Ave, Delta",
+            "picture": "AUjq9jlc6I5urx6gL1ZZYBhkveO8hLj8K1M2lUYb_by-UGCE-EwrOMCVSDmWlqN79Xd6VUWTEi8t7A4pnk8JXMZ729WihmxW7sYdQvvKbtmoUkkOXH4i2rVsjKphHfKw-QsxzOs9tl7pUbH92OSCoY1J_i_v_I_OgahAH1k2XiW0ZSff5_I9"
+        },
+        "Hilton Vancouver Metrotown": {
+            "location": {
+                "lat": 49.2289428,
+                "lng": -123.0043527
+            },
+            "address": "6083 McKay Ave, Burnaby",
+            "picture": "AUjq9jmMR1J-sBzUsojHYaUCgqOtJesl_GsR0_M5R8xYN5vCa8aocM4___0PgO2GH1YIwfFfNJpRDQwT_NZVRDE-Vf0AEkGXI6e5vSpgEQ5n01v92a6f05i2ezfmdZ1GxfJ9j8AWdwjtQ-JSolBR2mjOvWAkL7zMkZrKw7UU6553AQHEwpBh"
+        },
+        "Executive Suites Hotel and Conference Centre Metro Vancouver": {
+            "location": {
+                "lat": 49.2675192,
+                "lng": -123.0107417
+            },
+            "address": "4201 Lougheed Hwy., Burnaby",
+            "picture": "AUjq9jnQdCge1ibnFxDipD2Vmwa_QOvrI0HxlKgU9bWwMVYumO0i8TaVi3L1TavwAz8U1TDh2HURB4tp3KcVkOdxx5UbGPvGbt3l2r_ygc-5udpyWub9YRGWSgLAPn_0VE63jaHONiupVs8_dnUMHSLD-CBFU8ag8gOEZplGpzmFCZq5pPPZ"
+        },
+        "HI Vancouver Jericho Beach": {
+            "location": {
+                "lat": 49.2729723,
+                "lng": -123.2032312
+            },
+            "address": "1515 Discovery St, Vancouver",
+            "picture": "AUjq9jkSv8hbC0FKFBNga-PmGY7DT54l9iJ8Z44ng_NBdM8GSjXOm6I7G4-y3UcUw2epIkk4TmnLur4WnWF4TbLi_CrWPgj7b-OAzTd6n1Idcnq4qLvYw4z7eCDd-VScyMG5PkyXi5vSwcD0on571bE2jcegTZc6VLjXmWsEJwpYyuRnDvUH"
+        },
+        "Best Western Maple Ridge Hotel": {
+            "location": {
+                "lat": 49.2167798,
+                "lng": -122.6218687
+            },
+            "address": "21650 Lougheed Hwy., Maple Ridge",
+            "picture": "AUjq9jm3YofuQY81Swdded47-zC6IVDZ5f2lelRz14FXYR81_Syj3-4BLPxl7bAVFN4la8qFem2Dzx3p4UkArvfiyW-AAAh3WWaCo10rxBErLwBlNB6Vm3EdPlKxdl6WcXsZT1gpmDO4qXZi1FtuTfUMzuXb80edNcKh7za6rRwQK4fLoRqI"
+        },
+        "Holiday Inn & Suites North Vancouver": {
+            "location": {
+                "lat": 49.3131366,
+                "lng": -123.026906
+            },
+            "address": "700 Old Lillooet Rd, North Vancouver",
+            "picture": "AUjq9jkO-tWulZiiOz8aRxQ8DYPmHnSYFHj721TYWZBXr6mQnLVdB3rNRmXOFUAS4UN13UDosBaY9JkYqvTqc45_DlVAY433oPX29-6YRw604rEgnQQAMzU8VMA-BtQ0I1IPLQ08vL7KbY1w7l8zMfic1NdPd_2uCoX7SPB5wzzFfbvzjS8"
+        },
+        "Best Western Peace Arch Inn": {
+            "location": {
+                "lat": 49.04328599999999,
+                "lng": -122.791653
+            },
+            "address": "2293 King George Blvd, Surrey",
+            "picture": "AUjq9jkr4V9ZobJ6e0qzLrypNCyRl35ZbeGIPDPO0XeuyQOeTmlrDG8twvqmz_UgzI_IleeMLj4wkzt_h9Q9MuvuZTGHrhA8Sj-4uHC23UYkoC232QaGdl-FqGa_rWDSKPnWdy-_E4kXwZtIRH2TTIi5SpU_dWjs5n5KVYZ1iWhoCjKBMLfT"
+        },
+        "Vancouver": {
+            "location": {
+                "lat": 49.2827291,
+                "lng": -123.1207375
+            },
+            "address": "Vancouver",
+            "picture": "AUjq9jnrFxwXT6G6KG6_JkycysYZvcKe3goaYhagCv1SIdqxPOT0-x3gVdiBPZ92EZ_WJyFVd2bppvZG9Tf6xh59HcoKXpOOH8tSZ7EH5SiyuACjEBmCQt6zH-yhy5NCfefH6WkLmJxqLdXF7PFFHVlbULbedy5mY3WSSI1dD3a_DVDTpgQL"
+        },
+        "Fairmont Hotel Vancouver": {
+            "location": {
+                "lat": 49.2837112,
+                "lng": -123.1211176
+            },
+            "address": "900 West Georgia Street, Vancouver",
+            "picture": "AUjq9jkWTMzdbqOYza1wkS0VJRJeF1hIzK7Mp6otR2efhn9jK3lcHzSGK3c85J2YkuLsno0t-5Y5upHDLfrwK29A68D6Cska44otfYA_D6lq-x8dpVUWzQ0STZqVD8aDTG4wEMp9DMmOACtj_OYfjosh9eZGZIOucAN0-KYGvERZ51WCqHKs"
+        },
+        "Century Plaza Hotel": {
+            "location": {
+                "lat": 49.2808927,
+                "lng": -123.1270959
+            },
+            "address": "1015 Burrard Street, Vancouver",
+            "picture": "AUjq9jlgi28bv_YcONpFQqAibOWnGo1WYW_lqoQjsbwjJRgVY5J6NyJtpWWcRtVfwvRZzMkYvmh6VGOR-tGxv_YjuMer8CukH52llBGMSIsl3LXhAZOkcm9Bs_iv4V_taGic-_QfaPTDTA6WbKML33xUXKCGQDk_ceKExnwSimxzGGm12Jo"
+        },
+        "Rosewood Hotel Georgia": {
+            "location": {
+                "lat": 49.28346500000001,
+                "lng": -123.119031
+            },
+            "address": "801 West Georgia Street, Vancouver",
+            "picture": "AUjq9jmO8otLyI9re89wxOL1A_2qTsn3eO5kh-IfHWDulNkTCSSASk2oQngLy3DxzYyyV0zD_8_ljQkuEjZwElhytyy10NgDhfqxH5Iopa5nREu8q5ct12283VwSzGal7eYOzgpcXehPDNQXPe3UIIssxTsAbtZACmcKkX5yXrh3DmbLP2O5"
+        },
+        "St Regis Hotel": {
+            "location": {
+                "lat": 49.2830644,
+                "lng": -123.1158935
+            },
+            "address": "602 Dunsmuir Street, Vancouver",
+            "picture": "AUjq9jlKOUDe8OQITfLoOj8tciyK3vRaU6p4jIQ1n-19nJ44tNron9Irwrbj8NWHHj8obAlDO-MP5rRRf87B_DmBBaG3aNq6QmXoorwwKAUrx9ev3udeFiJV6X105dTOiYGfxvPAczVCZjyd2QfgxS9dXD1So4PJiHA8zQxD2Pn78H-3khXm"
+        },
+        "Executive Hotel Vintage Park Vancouver": {
+            "location": {
+                "lat": 49.27617100000001,
+                "lng": -123.1301471
+            },
+            "address": "1379 Howe Street, Vancouver",
+            "picture": "AUjq9jnopv0ABoNTfnOSKfQl1PrVZIfB_xVu7Em5oFf4PDwfJc43zM542Ok3QVTvtn2enxAx5oZoT6UPYTnSIh0IOpgu6FL4HLBPwn9n_8650wSG6OVK2F8Xfap5d2cMvS0tvDhbWiR8OVK5B1slDwnXIzWzkyZ3v9e7VcOQJJ7Ra1L9cQ0T"
+        },
+        "Sandman Hotel Vancouver Downtown": {
+            "location": {
+                "lat": 49.27889159999999,
+                "lng": -123.1130907
+            },
+            "address": "180 West Georgia Street, Vancouver",
+            "picture": "AUjq9jnH1qgG3rdqrt6W8O7BsbQ92TRG8oyeedIdJGGtdMf7bQwlPS_sgZ15vqSPeENcMqx6hlKnLCvb_K3_X12Uw4ssfP-wU_2ZIFvt5j460DmexQ2_7Vn4mIoCIE4GLcy9U_9gt7euRXXpJ86NsLc17pid57ZYA_92CFBvZnGEPPfkbPAv"
+        },
+        "Georgian Court Hotel": {
+            "location": {
+                "lat": 49.2782567,
+                "lng": -123.1135832
+            },
+            "address": "773 Beatty Street, Vancouver",
+            "picture": "AUjq9jnCl_jFjiEulfje3rBvnrLMg24jTpLULNR3h7p36CvZC3DhRqE5uEu2xHTkIJtOmdmqMoKhdXwDZ78sYlx5-UlTrdlJAIovTz_G6aFhQbKizmscHSHY5XtCKU3GuaEugjXzNq28TCdFub0CvyntcwZm5OmOwmarpPFiMf0fDBAtjc1K"
+        },
+        "Ramada by Wyndham Vancouver Downtown": {
+            "location": {
+                "lat": 49.2771096,
+                "lng": -123.1269091
+            },
+            "address": "1221 Granville Street, Vancouver",
+            "picture": "AUjq9jkZG5ixVmet0c6jDEz9vxjicuYywS_RZBbdLuohDBXXLthGFrvNs02EQrZYDLcn5rS6Bhp8jrgaiBMQYZYan-EblRSH5kAvoXTbDPGWk4vmmtyDyjc1fCV5ZkZPf7w6O_c5UH58OcNnXGKPxa5OFA1DVkboDX6XM7BCraXTlbq-uVMy"
+        },
+        "Sheraton Vancouver Wall Centre": {
+            "location": {
+                "lat": 49.280314,
+                "lng": -123.1264736
+            },
+            "address": "1000 Burrard Street, Vancouver",
+            "picture": "AUjq9jkqgUZChL_YFWntGUAyn1I6CvMbcNDwDP44Hwzsks_q2bjCtaSA1KHQOlCEiTI5bqBRjcFJ_RfDEBErj8vhSBef_l-Cmvq0kal0M6Vz6VtQEBn5IS-a0XUAXZ75A3NCSTv0tMyI0n6aKRMCUiWCAweC5zhC5Lrsf1D2LzMDxlkg-v2x"
+        },
+        "Best Western Plus Sands": {
+            "location": {
+                "lat": 49.2868666,
+                "lng": -123.140883
+            },
+            "address": "1755 Davie Street, Vancouver",
+            "picture": "AUjq9jnDbORhMnCygcLTP1dshPt1oAg6_6S7l13MpbUPrdJwrYI7nWd284ji3g35joBoP7KY-ETzbso9E20e9pR3LVC7zBkFMrpkqPgJv_Jshpge7dfBGc13xH_hbJOtXSmXCVWGPDmWFPZiAI-71vrNptgZHt869fuA2-jIIb_6JPmlAiH5"
+        },
+        "Hyatt Regency Vancouver": {
+            "location": {
+                "lat": 49.2853096,
+                "lng": -123.1207679
+            },
+            "address": "655 Burrard Street, Vancouver",
+            "picture": "AUjq9jk92-H8xOHdR3jxcwwpBGzEMWUu9Ynjk6xIrnqD_pH6SiOxlV_mV2erOm_FaNcoccLuPikqJQL_nqaoA3PTiSl3xd0LWgVnyYaZmgs-bb7ZHi5XmhwQffDDEz1wTVsw6nXKU8EtCOXRVeUUtvLflk7LwNwLL5fX8WlNiFsKMau7e5RS"
+        },
+        "Vancouver Marriott Pinnacle Downtown Hotel": {
+            "location": {
+                "lat": 49.28784779999999,
+                "lng": -123.1205131
+            },
+            "address": "1128 West Hastings Street, Vancouver",
+            "picture": "AUjq9jkYbS3ksuVw4J_uhLqpbeiIXYfdXoNb1EfkEapMqDKZqpgjUS8E0Xv30W2aIE_4QIKaDunhIu9r2QZdBFO5yucI0Hj2spgoGWWF28PpQ3O1et4NV6GWRGwB2Zy8gLfv149TqpumRUvxZdncEH7ItvRqSerIevAYRjUtbdEhnsYGVKdW"
+        },
+        "Vancouver Extended Stay": {
+            "location": {
+                "lat": 49.2876941,
+                "lng": -123.1267296
+            },
+            "address": "1288 West Georgia Street #101, Vancouver",
+            "picture": "AUjq9jkElty6ENf7tDstgnX9YHjw_PvFCaYe_dlOtL2ltWpKd8RLZa8AgDLk7M5Dc2fTBhHQfonyz8vbTjjFRbxwfL9kv_hE1SUQtr6XfzesFujYY2_jgm6BvXmGe5Pv6CkiDD5TUphaKyxPJ7ptcGZlDnuXPXvJ9PlI9BMhsATU-2Z7T94"
+        },
+        "Best Western Premier Chateau Granville Hotel & Suites & Conf Centre": {
+            "location": {
+                "lat": 49.2778093,
+                "lng": -123.1246489
+            },
+            "address": "1100 Granville Street, Vancouver",
+            "picture": "AUjq9jnR4i8P-Aznu1Zz19bujYDLqZ3JDs9QiFESL5uz4HD8xtz635-Lat-upeHf4oHCwhMNmAaxjo0KwRLVaLZCHVe-kLhNRdXNXr6IZpMOBaHzzf1V3G2Y0_c5GhN-fRjUr_Nj9RsHOD2v8k2BDxWGQ5YboXyM6ZVKxHzG0vc3zcKyF40t"
+        },
+        "Loden Hotel": {
+            "location": {
+                "lat": 49.28756670000001,
+                "lng": -123.1232791
+            },
+            "address": "1177 Melville Street, Vancouver",
+            "picture": "AUjq9jk0oHHQBu5ImdLsBg3xHj_iUvWlr_RtViUkjHgl6VSYs9VVn-a8qe5s8wMJS0Da_QJ95froG5Ev2K8iZqKMmt8g1KiDxbVC5lRZjYMLlyZzqa-oUazq4p-FxrC263eL9ofZS00WtX1lEDnpiTYq2IL8ctD7RTto9pHBKsDl4A6Z8LYJ"
+        },
+        "OPUS Vancouver": {
+            "location": {
+                "lat": 49.2746032,
+                "lng": -123.1226017
+            },
+            "address": "322 Davie Street, Vancouver",
+            "picture": "AUjq9jlDI4ecqL72gE9kDl6KsU7RUzrYB63Ps8oYigP2xMhrXLl9CXTD58bDZGPmNkGpEh0z_9mVxkGlGUVi4lTk16LgRuKi4Fwk7IL9ZhsD-_RT07WO0QZGGWRUM-N-AxLB9MLhVyMJ_lXyYUOeKyRHoTHdMxtolgKIeEzTbMf6c02dm78j"
+        },
+        "Blue Horizon Hotel": {
+            "location": {
+                "lat": 49.2864347,
+                "lng": -123.1274033
+            },
+            "address": "1225 Robson Street, Vancouver",
+            "picture": "AUjq9jkSgfSvpqjsWwikvucAEOz920Lptd534dp8gwgnHtG82TAbDDvR54w1cCFRimH9qyqy-8BvoptSSLplklqVf-LMbdILGY3miUn5EtcYJJGkMalqy0JNlrRZfl5hCWR7i_1BPaSAZekB5nxZ_lBZKyHcezJ8RTBumDfxEDgYdx5VnHJc"
+        },
+        "Metropolitan Hotel Vancouver": {
+            "location": {
+                "lat": 49.28399450000001,
+                "lng": -123.1183364
+            },
+            "address": "645 Howe Street, Vancouver",
+            "picture": "AUjq9jnPQhrfafEeb7Rz1i_h4MJWwf9jrFKkZuGxr77jLGdY9pr2QnA3bs8q-QwWfBgiFCq7kvOlM44_ra4fd_ut4Da-Z1LiHZI99p6ulzp-cWYuXxOWtZbY6Sbtz9_J8GQwNZZmOFl_AJs0ipPvl9vHRbDAbu0cHQA1XYUTztw_hiPZXOnD"
+        },
+        "North Vancouver": {
+            "location": {
+                "lat": 49.3199816,
+                "lng": -123.0724139
+            },
+            "address": "North Vancouver",
+            "picture": "AUjq9jk2bvr_eGWZ4S6jHo_iREP_eiWFapVkHrhyGTW8wXDOzXYkomxnniDe1C4NuvEuE9-LUtX54fsJiy6-XHprMbi7RpZ7lYbIInKS-VVp-b-zil74z1_2W-6nGbS2Ud8LLvOeox6URhs0fULgqDZ8-SNBoKx3wlGLZIeGZdS_5sr4ohCv"
+        }
+    }
+}

@@ -1,11 +1,11 @@
 package com.example.itraveller;
 
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 
 import android.Manifest;
 import android.app.Activity;
@@ -17,12 +17,20 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+
+//Widgets
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//Location Services
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.LocationCallback;
@@ -35,26 +43,54 @@ import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+//Firebase
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+
+
+
 
 public class Hotels extends AppCompatActivity {
 
-    private TextView AddressText;
-    private Button LocationButton;
+    private TextView addressText;
+    private Button locationButton;
     private LocationRequest locationRequest;
+    private ArrayList<String> hotelNames;
 
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotels);
 
-        AddressText = findViewById(R.id.addressText);
-        LocationButton = findViewById(R.id.locationButton);
+        TextView AddressText = findViewById(R.id.addressText);
+        TextView LocationButton = findViewById(R.id.locationButton);
 
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(5000);
         locationRequest.setFastestInterval(2000);
+
+
+        // Hotel name auto fill
+        getHotelNames();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (this, android.R.layout.select_dialog_item, hotelNames);
+        //Getting the instance of AutoCompleteTextView
+        AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        actv.setThreshold(1);//will start working from first character
+        actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
+        actv.setTextColor(Color.BLACK);
+        // Hotel name auto fill
 
         LocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +99,8 @@ public class Hotels extends AppCompatActivity {
                 getCurrentLocation();
             }
         });
+
+
 
 
     }
@@ -123,7 +161,7 @@ public class Hotels extends AppCompatActivity {
                                         double latitude = locationResult.getLocations().get(index).getLatitude();
                                         double longitude = locationResult.getLocations().get(index).getLongitude();
 
-                                        AddressText.setText("Latitude: "+ latitude + "\n" + "Longitude: "+ longitude);
+                                        addressText.setText("Latitude: "+ latitude + "\n" + "Longitude: "+ longitude);
                                     }
                                 }
                             }, Looper.getMainLooper());
@@ -192,6 +230,29 @@ public class Hotels extends AppCompatActivity {
         return isEnabled;
 
     }
+
+    private void getHotelNames() {
+        // get the reference to the JSON tree
+        databaseReference = firebaseDatabase.getReference();
+
+        // add a value event listener to the Users node
+        databaseReference.child("hotels").addListenerForSingleValueEvent(new ValueEventListener() {
+            // called to read a static snapshot of the contents at a given path
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    hotelNames.add( snapshot.child("name").getValue(String.class));
+                }
+            }
+
+            // called when the client doesn't have permission to access the data
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(Hotels.this, "Database Unavailable", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
 
 }

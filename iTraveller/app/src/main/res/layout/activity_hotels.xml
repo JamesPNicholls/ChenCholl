@@ -22,14 +22,18 @@
         android:gravity="center|top"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/hotel"
-            android:layout_width="match_parent"
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Enter hotel name"
-            android:inputType="textPersonName"
-            android:textSize="20sp" />
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView"
+            android:ems="20"
+            android:hint="Enter Hotel Name"
+            android:text="">
+
+            <requestFocus />
+        </AutoCompleteTextView>
 
         <Button
             android:id="@+id/btnGetData"
