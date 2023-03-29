@@ -103,7 +103,8 @@ public class Hotels extends AppCompatActivity {
         SearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                findHotelLocation();
+                Intent intent = new Intent(Hotels.this, activity_restaurants.class);
+                startActivity(intent);
             }
         });
 
