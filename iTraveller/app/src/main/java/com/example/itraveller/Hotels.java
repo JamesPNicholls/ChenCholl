@@ -53,16 +53,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
-
+import org.w3c.dom.Text;
 
 
 public class Hotels extends AppCompatActivity {
 
     private TextView addressText;
+    private Button searchButton;
     private Button locationButton;
     private LocationRequest locationRequest;
-    private ArrayList<String> hotelNames;
+    private ArrayList<String> hotelNames = new ArrayList<String>();
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
@@ -72,8 +72,15 @@ public class Hotels extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotels);
 
+        // get the instance of the Firebase database
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        // get the reference to the JSON tree
+        databaseReference = firebaseDatabase.getReference();
+
         TextView AddressText = findViewById(R.id.addressText);
-        TextView LocationButton = findViewById(R.id.locationButton);
+        Button LocationButton = findViewById(R.id.locationButton);
+        Button SearchButton   = findViewById(R.id.searchButton);
+
 
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -92,6 +99,14 @@ public class Hotels extends AppCompatActivity {
         actv.setTextColor(Color.BLACK);
         // Hotel name auto fill
 
+
+        SearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findHotelLocation();
+            }
+        });
+
         LocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,11 +114,8 @@ public class Hotels extends AppCompatActivity {
                 getCurrentLocation();
             }
         });
-
-
-
-
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -138,9 +150,34 @@ public class Hotels extends AppCompatActivity {
         }
     }
 
+
+    private void findHotelLocation() {
+        databaseReference = firebaseDatabase.getReference();
+
+        databaseReference.child("hotels").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+                TextView addressText = (TextView) findViewById(R.id.addressText);
+
+                String name = actv.getText().toString();
+
+                for( DataSnapshot s : snapshot.getChildren()) {
+                    if (s.child("name").getValue().toString().equals(name)) {
+                        addressText.setText(s.child("address").getValue().toString());
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     private void getCurrentLocation() {
-
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(Hotels.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
@@ -160,7 +197,7 @@ public class Hotels extends AppCompatActivity {
                                         int index = locationResult.getLocations().size() - 1;
                                         double latitude = locationResult.getLocations().get(index).getLatitude();
                                         double longitude = locationResult.getLocations().get(index).getLongitude();
-
+                                        addressText = (TextView) findViewById(R.id.addressText);
                                         addressText.setText("Latitude: "+ latitude + "\n" + "Longitude: "+ longitude);
                                     }
                                 }
@@ -177,9 +214,6 @@ public class Hotels extends AppCompatActivity {
     }
 
     private void turnOnGPS() {
-
-
-
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
                 .addLocationRequest(locationRequest);
         builder.setAlwaysShow(true);

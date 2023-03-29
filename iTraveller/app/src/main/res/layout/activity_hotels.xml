@@ -26,17 +26,18 @@
             android:id="@+id/autoCompleteTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
             android:ems="20"
             android:hint="Enter Hotel Name"
+            android:minHeight="48dp"
             android:text="">
 
             <requestFocus />
         </AutoCompleteTextView>
 
         <Button
-            android:id="@+id/btnGetData"
+            android:id="@+id/searchButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"

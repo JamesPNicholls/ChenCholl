@@ -120,13 +120,14 @@ public class MainActivity extends AppCompatActivity {
                     if(username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                         match = true;
                         Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
-                        // create an Intent with the current and target Activities specified (explicit intent)
                         Intent intent = new Intent(MainActivity.this, Hotels.class);
                         // put the user input data in the intent
                         //intent.putExtra("sent_from_act1", message);
 
                         // start the intent
                         startActivity(intent);
+                        // create an Intent with the current and target Activities specified (explicit intent)
+
                     }
                 }
                 if(!match) {
