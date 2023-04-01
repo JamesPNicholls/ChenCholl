@@ -79,7 +79,9 @@
                     android:layout_column="0"
                     android:layout_marginStart="0dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/korea" />
+                    android:src="@drawable/korea"
+
+                    />
 
 
 
@@ -223,7 +225,7 @@
                     android:scaleType="fitXY"
                     android:src="@drawable/switzerland" />
                 <ImageButton
-                    android:id="@+id/tailand"
+                    android:id="@+id/thailand"
                     android:layout_width="125dp"
                     android:layout_height="125dp"
                     android:layout_row="5"

@@ -27,6 +27,7 @@ import android.widget.AutoCompleteTextView;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,9 +64,32 @@ public class Hotels extends AppCompatActivity {
     private Button locationButton;
     private LocationRequest locationRequest;
     private ArrayList<String> hotelNames = new ArrayList<String>();
+    private ArrayList<String[]> hotelLL  = new ArrayList<String[]>();
+    private ArrayList<String> restTypes  = new ArrayList<String>();
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+
+    private ImageButton b_korea;
+    private ImageButton b_usa;
+    private ImageButton b_australia;
+    private ImageButton b_china;
+    private ImageButton b_france;
+    private ImageButton b_greece;
+    private ImageButton b_india;
+    private ImageButton b_italy;
+    private ImageButton b_japan;
+    private ImageButton b_mexico;
+    private ImageButton b_montenegro;
+    private ImageButton b_pakistan;
+    private ImageButton b_portugal;
+    private ImageButton b_spain;
+    private ImageButton b_sweden;
+    private ImageButton b_switzerland;
+    private ImageButton b_thailand;
+    private ImageButton b_ukraine;
+    private ImageButton b_vietnam;
+    private ImageButton b_philippines;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +106,8 @@ public class Hotels extends AppCompatActivity {
         Button SearchButton   = findViewById(R.id.searchButton);
 
 
+
+
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(5000);
@@ -90,6 +116,7 @@ public class Hotels extends AppCompatActivity {
 
         // Hotel name auto fill
         getHotelNames();
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this, android.R.layout.select_dialog_item, hotelNames);
         //Getting the instance of AutoCompleteTextView
@@ -100,10 +127,23 @@ public class Hotels extends AppCompatActivity {
         // Hotel name auto fill
 
 
+
+
+
         SearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Hotels.this, activity_restaurants.class);
+                String name     = actv.getText().toString();
+                String address  = AddressText.getText().toString();
+
+                int index = hotelNames.indexOf(name);
+                String[] ll = hotelLL.get(index);
+
+
+                intent.putExtra("hotel_name", name);
+                intent.putExtra("latLng",ll);
+                intent.putStringArrayListExtra("rest_list", restTypes);
                 startActivity(intent);
             }
         });
@@ -115,6 +155,232 @@ public class Hotels extends AppCompatActivity {
                 getCurrentLocation();
             }
         });
+
+        // adding on clicks for all of the imagebuttons
+        b_korea = (ImageButton) findViewById(R.id.korea);
+        b_usa = (ImageButton) findViewById(R.id.usa);
+        b_australia = (ImageButton) findViewById(R.id.australia);
+        b_china = (ImageButton) findViewById(R.id.china);
+        b_france = (ImageButton) findViewById(R.id.france);
+        b_greece = (ImageButton) findViewById(R.id.greece);
+        b_india = (ImageButton) findViewById(R.id.india);
+        b_italy = (ImageButton) findViewById(R.id.italy);
+        b_japan = (ImageButton) findViewById(R.id.japan);
+        b_mexico = (ImageButton) findViewById(R.id.mexico);
+        b_montenegro = (ImageButton) findViewById(R.id.montenegro);
+        b_pakistan = (ImageButton) findViewById(R.id.pakistan);
+        b_portugal = (ImageButton) findViewById(R.id.portugal);
+        b_spain = (ImageButton) findViewById(R.id.spain);
+        b_sweden = (ImageButton) findViewById(R.id.sweden);
+        b_switzerland = (ImageButton) findViewById(R.id.switzerland);
+        b_thailand = (ImageButton) findViewById(R.id.thailand);
+        b_ukraine = (ImageButton) findViewById(R.id.ukraine);
+        b_vietnam = (ImageButton) findViewById(R.id.vietnam);
+        b_philippines = (ImageButton) findViewById(R.id.philippines);
+
+       b_korea.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("korea")){
+                    b_korea.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_korea.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+       }
+       });
+       b_usa.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("usa")){
+                    b_usa.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_usa.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_australia.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("australia")){
+                    b_australia.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_australia.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_china.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("china")){
+                    b_china.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_china.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_france.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("france")){
+                    b_france.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_france.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+        b_greece.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("greece")){
+                    b_greece.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_greece.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_india.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("india")){
+                    b_india.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_india.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_italy.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("italy")){
+                    b_italy.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_italy.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_japan.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("japan")){
+                    b_japan.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_japan.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_mexico.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("mexico")){
+                    b_mexico.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_mexico.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_montenegro.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("montenegro")){
+                    b_montenegro.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_montenegro.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_pakistan.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("pakistan")){
+                    b_pakistan.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_pakistan.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_portugal.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("portugal")){
+                    b_portugal.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_portugal.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_spain.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("spain")){
+                    b_spain.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_spain.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_sweden.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("sweden")){
+                    b_sweden.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_sweden.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_switzerland.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("switzerland")){
+                    b_switzerland.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_switzerland.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_thailand.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("thailand")){
+                    b_thailand.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_thailand.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+        b_ukraine.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("ukraine")){
+                    b_ukraine.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_ukraine.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_vietnam.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View view){
+                if(addType("korea")){
+                    b_vietnam.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                } else {
+                    b_vietnam.setBackgroundColor(getResources().getColor(R.color.grey));
+                }
+        }
+       });
+       b_philippines.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               if(addType("philippines")){
+                   b_philippines.setBackgroundColor(getResources().getColor(R.color.purple_500));
+               } else {
+                   b_philippines.setBackgroundColor(getResources().getColor(R.color.grey));
+               }
+
+           }
+       });
+
+
     }
 
 
@@ -177,6 +443,9 @@ public class Hotels extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     private void getCurrentLocation() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -276,7 +545,14 @@ public class Hotels extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    hotelNames.add( snapshot.child("name").getValue(String.class));
+
+                    //gets the name and lat,long of hotels to send later
+                    String name = snapshot.child("name").getValue(String.class);
+                    String lat  = (snapshot.child("location").child("lat").getValue(float.class)).toString();
+                    String lng  = (snapshot.child("location").child("lng").getValue(float.class)).toString();
+                    String[] data = {lat, lng};
+                    hotelNames.add(name);
+                    hotelLL.add( data);
                 }
             }
 
@@ -286,6 +562,18 @@ public class Hotels extends AppCompatActivity {
                 Toast.makeText(Hotels.this, "Database Unavailable", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private boolean addType(String type){
+        //Checks to see if the type of food as already been added, and attempts to remove it
+        for(String s : restTypes){
+            if(s.equals(type)){
+                restTypes.remove(restTypes.indexOf(type));
+                return false;
+            }
+        }
+        restTypes.add(type);
+        return true;
     }
 
 
