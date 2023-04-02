@@ -6,6 +6,7 @@ public class urlMaker {
 
     private String urlStartRest = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
     private String urlStartPhot = "https://maps.googleapis.com/maps/api/place/photo?";
+    private String urlStartData = "https://maps.googleapis.com/maps/api/place/details/json?"; // for rest details on the map page
     private String key      = "AIzaSyA56SPjWPDegiQPfZgQBofAgd5TwCMej6E";
     private String locationLAT ;
     private String locationLON ;
@@ -43,6 +44,12 @@ public class urlMaker {
     }
 
 
+    public String getRestInfoUrl( String id){
+        String url = urlStartData
+                    + "&placeid=" + id
+                    + "&key=" + key;
+        return url;
+    }
     public String getPicUrl(String ref){
         String ret = urlStartPhot
                 + "maxwidth=100"

@@ -14,12 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class restRecycleViewAdp extends RecyclerView.Adapter<restRecycleViewAdp.myViewHolder> {
+    private final restRecycleInterface restRecycleInterface;
     Context context;
     ArrayList<CRestaurant> restaurants;
 
-    public restRecycleViewAdp(Context context, ArrayList<CRestaurant> restaurants) {
+    public restRecycleViewAdp(Context context, ArrayList<CRestaurant> restaurants, restRecycleInterface restRecycleInterface ) {
         this.context = context;
         this.restaurants = restaurants;
+        this.restRecycleInterface = restRecycleInterface;
 
 
     }
@@ -31,7 +33,7 @@ public class restRecycleViewAdp extends RecyclerView.Adapter<restRecycleViewAdp.
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.rest_row, parent, false);
 
-        return new restRecycleViewAdp.myViewHolder(view);
+        return new restRecycleViewAdp.myViewHolder(view, restRecycleInterface);
     }
 
     @Override
@@ -63,13 +65,26 @@ public class restRecycleViewAdp extends RecyclerView.Adapter<restRecycleViewAdp.
         TextView  tvName, tvAddress, tvType;
 
 
-        public myViewHolder(@NonNull View itemView) {
+        public myViewHolder(@NonNull View itemView, restRecycleInterface restRecycleInterface) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.imageView);
             tvName    = itemView.findViewById(R.id.textViewName);
             tvAddress = itemView.findViewById(R.id.textViewAddress);
             tvType    =itemView.findViewById(R.id.textViewType);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (restRecycleInterface != null){
+                        int position = getAdapterPosition();
+
+                        if(position != RecyclerView.NO_POSITION){
+                            restRecycleInterface.onItemClick(position);
+                        }
+                    }
+                }
+            });
 
 
         }

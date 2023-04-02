@@ -3,6 +3,7 @@ package com.example.itraveller;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
@@ -37,10 +38,29 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private String[] rest_LL, hotel_LL;
+    private String   hotel_Name, rest_Name, place_id;
+
+    private urlMaker _urlMaker = new urlMaker();
+
+    private restDetails _restDetails = new restDetails();
+
+    RequestQueue requestQueue;
+    JsonObjectRequest jsonObjectRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        rest_LL  = intent.getStringArrayExtra("rest_LL");
+        hotel_LL = intent.getStringArrayExtra("hotel_LL");
+        hotel_Name = intent.getStringExtra("hotel_name");
+        rest_Name  = intent.getStringExtra("rest_name");
+        place_id   = intent.getStringExtra("place_id");
+
+
+
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -48,6 +68,8 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        getRestDetails();
     }
 
     @Override
@@ -57,15 +79,18 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
     }
 
     private void direction(){
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(this);
+        String dest = rest_LL[0] + ", " + rest_LL[1];
+        String orig = hotel_LL[0] + ", " + hotel_LL[1];
+
         String url = Uri.parse("https://maps.googleapis.com/maps/api/directions/json")
                 .buildUpon()
-                .appendQueryParameter("destination", "49.2796627, -123.1172019")
-                .appendQueryParameter("origin", "49.22824, -123.0050708")
-                .appendQueryParameter("mode", "driving")
+                .appendQueryParameter("destination", dest)
+                .appendQueryParameter("origin", orig)
+                .appendQueryParameter("mode", "walking")
                 .appendQueryParameter("key", "AIzaSyAczDSfmACyCZjZVmk5cu0XYJ-lkYihAp4")
                 .toString();
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -100,15 +125,15 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
                             polylineOptions.geodesic(true);
                         }
                         mMap.addPolyline(polylineOptions);
-                        mMap.addMarker(new MarkerOptions().position(new LatLng(49.2796627, -123.1172019)).title("Marker 1"));
-                        mMap.addMarker(new MarkerOptions().position(new LatLng(49.22824, -123.0050708)).title("Marker 1"));
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(Double.valueOf(rest_LL[0]), Double.valueOf(rest_LL[1]))).title(rest_Name));
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(Double.valueOf(hotel_LL[0]), Double.valueOf(hotel_LL[1]))).title(hotel_Name));
 
                         LatLngBounds bounds = new LatLngBounds.Builder()
-                                .include(new LatLng(49.2796627, -123.1172019))
-                                .include(new LatLng(49.22824, -123.0050708)).build();
+                                .include(new LatLng(Double.valueOf(rest_LL[0]), Double.valueOf(rest_LL[1])))
+                                .include(new LatLng(Double.valueOf(hotel_LL[0]), Double.valueOf(hotel_LL[1]))).build();
                         Point point = new Point();
                         getWindowManager().getDefaultDisplay().getSize(point);
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, point.x, 150, 30));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, point.x, 150, 30));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -159,5 +184,36 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
             Log.i("Location", "Point sent: Latitude: "+poly.get(i).latitude+" Longitude: "+poly.get(i).longitude);
         }
         return poly;
+    }
+
+    public void getRestDetails() {
+        requestQueue = Volley.newRequestQueue(this);
+        String url = _urlMaker.getRestInfoUrl(place_id);
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONObject results = response.getJSONObject("result");
+                    _restDetails.setDetails(results);
+                    displayRestDetails();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+
+        });
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void displayRestDetails(){
+
+
     }
 }

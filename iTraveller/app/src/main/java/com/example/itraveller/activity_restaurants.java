@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class activity_restaurants extends AppCompatActivity {
+public class activity_restaurants extends AppCompatActivity implements restRecycleInterface {
 //https://maps.googleapis.com/maps/api/place/photo
 //  ?maxwidth=400
 //  &photo_reference=AUjq9jnSmTPXy9LfVCNx75qICEJCdqTB0SKnJUq5ZeuzqoVrAMlVtdVML4wcbGbKlZJSIOSIrbMnCnc4u7_mxr0Uk66RFE7Y6JfvVSEtnNRSP1-iK6mmsBRE696MsIWn9UeXyn_LYokz63VCXc_XZSW1XbPD5ZnLK2mf4pyUKc50BCnYk9s&key=YOUR_API_KEY
@@ -47,6 +47,7 @@ public class activity_restaurants extends AppCompatActivity {
     String hotel_name;
     String hotel_ref;
     String[] hotelLL;
+    String place_id;
 
     ArrayList<String> rest_type;
 
@@ -102,22 +103,33 @@ public class activity_restaurants extends AppCompatActivity {
                 CRestaurant rest = new CRestaurant( "No Restaurants found...",
                         "",
                         "",
+                        "",
+                        new String[]{},
                         "");
+
                 _restaurants.add(rest);
-            }else
-            for(int i = 0; i < jsonResults.length(); i++){
+            }else{
+
+            for(int i = 0; i < jsonResults.length(); i++) {
                 JSONObject jo = jsonResults.getJSONObject(i);
-                JSONArray  photos = jo.getJSONArray("photos");
+                JSONObject geo = jo.getJSONObject("geometry");
+                JSONObject loc = geo.getJSONObject("location");
+
+
+                JSONArray photos = jo.getJSONArray("photos");
                 JSONObject ref = photos.getJSONObject(0);
 
-                CRestaurant rest = new CRestaurant( jo.getString("name"),
+                CRestaurant rest = new CRestaurant(jo.getString("name"),
                         jo.getString("vicinity"),
                         type,
-                        ref.getString("photo_reference"));
+                        ref.getString("photo_reference"),
+                        new String[]{loc.getString("lat"),loc.getString("lng")},
+                        jo.getString("place_id")
+                        );
 
                 _restaurants.add(rest);
 
-
+            }
             }
         } catch (JSONException e){
             e.printStackTrace();
@@ -135,7 +147,7 @@ public class activity_restaurants extends AppCompatActivity {
                 RecyclerView recView = findViewById(R.id.restRecycleView);
                 handleResponse(response, type);
 
-                restRecycleViewAdp adapter = new restRecycleViewAdp(activity_restaurants.this, _restaurants);
+                restRecycleViewAdp adapter = new restRecycleViewAdp(activity_restaurants.this, _restaurants, activity_restaurants.this);
 
                 recView.setAdapter(adapter);
                 recView.setLayoutManager(new LinearLayoutManager(activity_restaurants.this));
@@ -173,5 +185,17 @@ public class activity_restaurants extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onItemClick(int pos) {
+            Intent intent = new Intent(activity_restaurants.this, MapsActivity.class);
+            intent.putExtra("hotel_name", hotel_name);
+            intent.putExtra("rest_name", _restaurants.get(pos).getName());
+            intent.putExtra("hotel_LL", hotelLL);
+            intent.putExtra("rest_LL", _restaurants.get(pos).getLatLong());
+            intent.putExtra("place_id", _restaurants.get(pos).getPlaceid());
+            startActivity(intent);
+
+
+    }
 }
 
