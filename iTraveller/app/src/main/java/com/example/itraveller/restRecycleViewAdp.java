@@ -1,6 +1,7 @@
 package com.example.itraveller;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,11 @@ public class restRecycleViewAdp extends RecyclerView.Adapter<restRecycleViewAdp.
         holder.tvName.setText(restaurants.get(position).getName());
         holder.tvAddress.setText(restaurants.get(position).getAddress());
         holder.tvType.setText(restaurants.get(position).getType());
-        holder.imageView.setImageResource(R.drawable.china);
+        String img = restaurants.get(position).getType();
+
+        int drawId = context.getResources().getIdentifier(img, "drawable",
+                context.getPackageName());
+        holder.imageView.setImageResource(drawId);
 
 
     }

@@ -64,8 +64,10 @@ public class Hotels extends AppCompatActivity {
     private Button locationButton;
     private LocationRequest locationRequest;
     private ArrayList<String> hotelNames = new ArrayList<String>();
+    private ArrayList<String> hotelRef   = new ArrayList<String>();
     private ArrayList<String[]> hotelLL  = new ArrayList<String[]>();
     private ArrayList<String> restTypes  = new ArrayList<String>();
+
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
@@ -136,15 +138,21 @@ public class Hotels extends AppCompatActivity {
                 Intent intent = new Intent(Hotels.this, activity_restaurants.class);
                 String name     = actv.getText().toString();
                 String address  = AddressText.getText().toString();
-
                 int index = hotelNames.indexOf(name);
-                String[] ll = hotelLL.get(index);
 
+                //check so see if a valid hotel name is selected
+                if(index == -1) {
+                    Toast.makeText(Hotels.this, "Please Select a Hotel...", Toast.LENGTH_SHORT).show();
+                } else{
+                    String[] ll = hotelLL.get(index);
 
-                intent.putExtra("hotel_name", name);
-                intent.putExtra("latLng",ll);
-                intent.putStringArrayListExtra("rest_list", restTypes);
-                startActivity(intent);
+                    intent.putExtra("hotel_name", name);
+                    intent.putExtra("latLng",ll);
+                    intent.putStringArrayListExtra("rest_list", restTypes);
+                    intent.putExtra("hotel_ref", hotelRef.get(index));
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -550,9 +558,12 @@ public class Hotels extends AppCompatActivity {
                     String name = snapshot.child("name").getValue(String.class);
                     String lat  = (snapshot.child("location").child("lat").getValue(float.class)).toString();
                     String lng  = (snapshot.child("location").child("lng").getValue(float.class)).toString();
+                    String hotRef = snapshot.child("picture").getValue(String.class);
                     String[] data = {lat, lng};
                     hotelNames.add(name);
                     hotelLL.add( data);
+                    hotelRef.add(hotRef);
+
                 }
             }
 
