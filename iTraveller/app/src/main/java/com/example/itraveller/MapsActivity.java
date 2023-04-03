@@ -2,12 +2,17 @@ package com.example.itraveller;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -15,8 +20,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.itraveller.databinding.ActivityRegisterBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -34,7 +42,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class  MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class  MapsActivity extends FragmentActivity implements OnMapReadyCallback, mapRecycleInterface {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
@@ -44,9 +52,13 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
     private urlMaker _urlMaker = new urlMaker();
 
     private restDetails _restDetails = new restDetails();
+    private ArrayList<CRestImage> cRestImages = new ArrayList<>();
+
+    private ImageLoader imageLoader;
 
     RequestQueue requestQueue;
     JsonObjectRequest jsonObjectRequest;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +71,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
         rest_Name  = intent.getStringExtra("rest_name");
         place_id   = intent.getStringExtra("place_id");
 
-
-
+        RecyclerView recyclerView = findViewById(R.id.recMapImage);
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -70,6 +81,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this);
 
         getRestDetails();
+
     }
 
     @Override
@@ -198,6 +210,9 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
                     _restDetails.setDetails(results);
                     displayRestDetails();
 
+                    // Needs to be called after the photo_ids have been gerneated
+                    setUpImage();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -213,7 +228,75 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
     }
 
     public void displayRestDetails(){
+      TextView textNameMap= findViewById(R.id.textNameMap);
+      TextView textAddressMap= findViewById(R.id.textAddressMap);
+      TextView textUrlMap= findViewById(R.id.textUrlMap);
+      TextView textPhoneMap= findViewById(R.id.textPhoneMap);
+      TextView textReviewText= findViewById(R.id.textReviewText);
+      TextView textHoursMap= findViewById(R.id.textHoursMap);
+      TextView textOC= findViewById(R.id.textOC);
+
+      RatingBar ratingBar = findViewById(R.id.ratingBar);
+
+      textNameMap.setText( _restDetails.getName());
+      textAddressMap.setText( _restDetails.getAddress());
+      textUrlMap.setText( _restDetails.getWebsite());
+      textPhoneMap.setText( _restDetails.getPhoneNum());
+      textReviewText.setText( _restDetails.getReviewText());
+      textHoursMap.setText( _restDetails.getWeekdayText());
+
+      ratingBar.setRating((float) _restDetails.getRating());
+
+        if (_restDetails.isOpen()){
+            textOC.setText( "OPEN");
+        } else {
+            textOC.setText("CLOSED");
+        }
+    }
+
+    // Gets the bitmap images with volley request based on the photo reference strings
+    // When the all images are stored popualte the recycle view with them
+    void setUpImage(){
+
+        for(String photo_id : _restDetails.getPhotoRef()){
+            String url = _urlMaker.getPicUrl(photo_id);
+
+            requestQueue = Volley.newRequestQueue(this);
+
+            ImageRequest  imageRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
+                @Override
+                public void onResponse(Bitmap response) {
+                    try {
+
+                        cRestImages.add(new CRestImage(response));
+                        if(cRestImages.size() == _restDetails.getPhotoRef().size()){
+
+                            RecyclerView recyclerView = findViewById(R.id.recMapImage);
+                            mapRecycleViewAdp adapter = new mapRecycleViewAdp(MapsActivity.this, MapsActivity.this, cRestImages);
+                            recyclerView.setAdapter(adapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(MapsActivity.this, LinearLayoutManager.HORIZONTAL,false));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                },100,100, Bitmap.Config.ALPHA_8,
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                }
+            });
+            requestQueue.add(imageRequest);
 
 
+
+        }
+
+    }
+
+    @Override
+    public void onItemClick(int pos) {
+       // On click event when the
     }
 }

@@ -46,14 +46,14 @@ public class urlMaker {
 
     public String getRestInfoUrl( String id){
         String url = urlStartData
-                    + "&placeid=" + id
+                    + "placeid=" + id
                     + "&key=" + key;
         return url;
     }
     public String getPicUrl(String ref){
         String ret = urlStartPhot
                 + "maxwidth=100"
-                + "&photo_reference=" + ref
+                    + "&photo_reference=" + ref
                 + "&key="+key;
         return ret;
     }

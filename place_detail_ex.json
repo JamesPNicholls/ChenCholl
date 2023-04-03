@@ -1,0 +1,527 @@
+{
+   "html_attributions" : [],
+   "result" : {
+      "address_components" : [
+         {
+            "long_name" : "41",
+            "short_name" : "41",
+            "types" : [ "street_number" ]
+         },
+         {
+            "long_name" : "6th Street",
+            "short_name" : "6th St",
+            "types" : [ "route" ]
+         },
+         {
+            "long_name" : "New Westminster",
+            "short_name" : "New Westminster",
+            "types" : [ "locality", "political" ]
+         },
+         {
+            "long_name" : "Metro Vancouver",
+            "short_name" : "Metro Vancouver",
+            "types" : [ "administrative_area_level_2", "political" ]
+         },
+         {
+            "long_name" : "British Columbia",
+            "short_name" : "BC",
+            "types" : [ "administrative_area_level_1", "political" ]
+         },
+         {
+            "long_name" : "Canada",
+            "short_name" : "CA",
+            "types" : [ "country", "political" ]
+         },
+         {
+            "long_name" : "V3L 2Z1",
+            "short_name" : "V3L 2Z1",
+            "types" : [ "postal_code" ]
+         }
+      ],
+      "adr_address" : "\u003cspan class=\"street-address\"\u003e41 6th St\u003c/span\u003e, \u003cspan class=\"locality\"\u003eNew Westminster\u003c/span\u003e, \u003cspan class=\"region\"\u003eBC\u003c/span\u003e \u003cspan class=\"postal-code\"\u003eV3L 2Z1\u003c/span\u003e, \u003cspan class=\"country-name\"\u003eCanada\u003c/span\u003e",
+      "business_status" : "OPERATIONAL",
+      "current_opening_hours" : {
+         "open_now" : false,
+         "periods" : [
+            {
+               "close" : {
+                  "date" : "2023-04-03",
+                  "day" : 1,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "date" : "2023-04-03",
+                  "day" : 1,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-03",
+                  "day" : 1,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "date" : "2023-04-03",
+                  "day" : 1,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-04",
+                  "day" : 2,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "date" : "2023-04-04",
+                  "day" : 2,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-04",
+                  "day" : 2,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "date" : "2023-04-04",
+                  "day" : 2,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-05",
+                  "day" : 3,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "date" : "2023-04-05",
+                  "day" : 3,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-05",
+                  "day" : 3,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "date" : "2023-04-05",
+                  "day" : 3,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-06",
+                  "day" : 4,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "date" : "2023-04-06",
+                  "day" : 4,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-06",
+                  "day" : 4,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "date" : "2023-04-06",
+                  "day" : 4,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-07",
+                  "day" : 5,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "date" : "2023-04-07",
+                  "day" : 5,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-07",
+                  "day" : 5,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "date" : "2023-04-07",
+                  "day" : 5,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-08",
+                  "day" : 6,
+                  "time" : "1400"
+               },
+               "open" : {
+                  "date" : "2023-04-08",
+                  "day" : 6,
+                  "time" : "1200"
+               }
+            },
+            {
+               "close" : {
+                  "date" : "2023-04-08",
+                  "day" : 6,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "date" : "2023-04-08",
+                  "day" : 6,
+                  "time" : "1630"
+               }
+            }
+         ],
+         "weekday_text" : [
+            "Monday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Tuesday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Wednesday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Thursday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Friday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Saturday: 12:00 – 2:00 PM, 4:30 – 8:00 PM",
+            "Sunday: Closed"
+         ]
+      },
+      "delivery" : true,
+      "dine_in" : true,
+      "formatted_address" : "41 6th St, New Westminster, BC V3L 2Z1, Canada",
+      "formatted_phone_number" : "(604) 544-8220",
+      "geometry" : {
+         "location" : {
+            "lat" : 49.20391409999999,
+            "lng" : -122.9084166
+         },
+         "viewport" : {
+            "northeast" : {
+               "lat" : 49.20520463029149,
+               "lng" : -122.9071054197085
+            },
+            "southwest" : {
+               "lat" : 49.20250666970849,
+               "lng" : -122.9098033802915
+            }
+         }
+      },
+      "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "icon_background_color" : "#FF9E67",
+      "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+      "international_phone_number" : "+1 604-544-8220",
+      "name" : "Sushi Yen",
+      "opening_hours" : {
+         "open_now" : false,
+         "periods" : [
+            {
+               "close" : {
+                  "day" : 1,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "day" : 1,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 1,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "day" : 1,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 2,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "day" : 2,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 2,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "day" : 2,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 3,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "day" : 3,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 3,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "day" : 3,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 4,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "day" : 4,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 4,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "day" : 4,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 5,
+                  "time" : "1430"
+               },
+               "open" : {
+                  "day" : 5,
+                  "time" : "1130"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 5,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "day" : 5,
+                  "time" : "1630"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 6,
+                  "time" : "1400"
+               },
+               "open" : {
+                  "day" : 6,
+                  "time" : "1200"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 6,
+                  "time" : "2000"
+               },
+               "open" : {
+                  "day" : 6,
+                  "time" : "1630"
+               }
+            }
+         ],
+         "weekday_text" : [
+            "Monday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Tuesday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Wednesday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Thursday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Friday: 11:30 AM – 2:30 PM, 4:30 – 8:00 PM",
+            "Saturday: 12:00 – 2:00 PM, 4:30 – 8:00 PM",
+            "Sunday: Closed"
+         ]
+      },
+      "photos" : [
+         {
+            "height" : 1440,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/106947564326197016672\"\u003eSushi Yen\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jnwpC5qOtrRmCi9Q5Acb7xci5ObN6vUwpPzr10KxtDVgLDkEiR7BPCerWYTQzXnsrmtJNanXaY9dywdwfeXgMqHnGbzGgWrrSyhAarrVWYx-C12dNe71DGgC46StAOTqUsJBGJ7dyremdJNgle1y4-hN6iUIku5hW5Dm4iLuLvz8F80",
+            "width" : 2560
+         },
+         {
+            "height" : 1440,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/106947564326197016672\"\u003eSushi Yen\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jlXkTUAzGLdCSU-3d4lQutX0k0qiCs1TSZ7jtVkZNbAUu0xAcskEI31IzcZOLLbHl44i9coyY8llbd4LHQ_lowkML0pQTNO8EMfUedrLOdA3oTG9bLdpG9rQ9mpt2KnnpGU15Q_s756Wy42OE8gzuJty6JVgU1dCaPEJjCIGSW2mZfC",
+            "width" : 2560
+         },
+         {
+            "height" : 4032,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/106947564326197016672\"\u003eSushi Yen\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jmguB50oC8n6EGK-OZsJRzDr6dzGnMUJHi7VCtYxFtGndIhJOpVR6FgjL8fhUqjtg-URrlp0zNoxlyozWkC-vH5YoEOGPiHYdqda0Jan6sI9zLyVSe0AaGgIQ4VXYP2bFkkRwadjCKUF1Xr_WSQXRjTsL9fMWEoqLnU8kBLOovGZiQS",
+            "width" : 2268
+         },
+         {
+            "height" : 1440,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/106947564326197016672\"\u003eSushi Yen\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jnHOFZleSX5Vb3yyUfwV0AllEIFBHnlNYOv7T9L0PdXolxpH5M2MaLEAnEuADVwIBbjHKXnUz2NIKt_pBZXVuXmbZVkbOZJDnWS3JPvtUECbiVCvAAYcGu-LNHP5zKCZ5hkO77sPs_AbbeoC45-RHG7JfL8rZwwaZ42-Y3EFjScxGbO",
+            "width" : 2560
+         },
+         {
+            "height" : 2268,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/104510117638520753546\"\u003eJuliana Oliveira\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jk9uHEElj0e1wc-GWBePAfrY8cus3AMMmjCPGk4vy7-S8jHVWninn-hg1vLqmztYM_u3DJJZqQS6N-RNF5NKZO2R5eTGhpg47831am4otZEH5Qs35BAvIXMiAAiNrk3ZRI_gLaZcb-5oHaCwEy2YK9VZ5VcPG4bMKqFgJkYQZXFtYIz",
+            "width" : 4032
+         },
+         {
+            "height" : 3024,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/110242039159447129301\"\u003eJoseph W\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jl4unxhblCULUCHZGf-OO33bMumdvOVbUjXl2FL-ulh0tTGoTsReIPKWy50sLSdGceYh63Q74DNLmW5FIG8I10n6TUGxn_Vcrc7BvUhAYK27rh3SWQogz6nZ90KYOVrYiOrvuPfx_INhqjGRRFWiX8yJb-h7_sjEOvTAPMUWYgl-L2C",
+            "width" : 4032
+         },
+         {
+            "height" : 3024,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/106947564326197016672\"\u003eSushi Yen\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jnu3AWdiN_pbutxfjyS-XgARq3cmYSZxPFkWJXX4PMXjPFD0IVpis5sAosmzN10-L45kWF1l0iBaUev8Rk9lPEaSBB7qnHkh2Nohy0OIBGtTnIy3i74RE0UiW60uEJcSlcd6Vs0RQSeQwyegL3zdhgsZ5wP1ccxxDuRbegkmDgGtV5a",
+            "width" : 4032
+         },
+         {
+            "height" : 4032,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/106947564326197016672\"\u003eSushi Yen\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jnHIr0EtqT7M_xM34j1paKZCTiJYsMwRZoUigmRQRDlDduTYOviXKeji7SAAp0J6mrCkuBVe8o2LVxY_AAGs6yFzpUFh3XlwYtbespvLFUi9-FbvSu5zXMNeyKmwAvgH3pXYXCtBgiNn2XRzBJ8T-dfve6E121ONGbnLR0wo2O_wgkB",
+            "width" : 2268
+         },
+         {
+            "height" : 3000,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/110368607901520122993\"\u003eAnna G\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jn8CDUcVHFkdK6UREoYF73gS5Umf9Y-PQyGrdQ15qKss_kGlG75a5DP6JeKAx4lBWqouTH4GRtNgUIkdMaankFDciXUSrEDtrgKmMRhzURwsLInzZukx92PsVX3GUhNl-Trs3DGYRShTDA91fL_w6Gau7_c1hMt1Z6MFTYabJC5-uxg",
+            "width" : 4000
+         },
+         {
+            "height" : 1440,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/106947564326197016672\"\u003eSushi Yen\u003c/a\u003e"
+            ],
+            "photo_reference" : "AUjq9jmW_TJdkQhQJuqVGEDBjgNARO6VsBGhCS_cxBLFxliMsVm8DOFPsB5gAWTJZLM2GH06bUbsBLWH2n9HPmgtp6B5H-erIZAxKzIZMs20bCIOp0hdgv1bPuyjHdKdElv2LzpdVRnBEoaD7C2YrXUN_nvzsu1yLUldxcNpv-e40uygBbvc",
+            "width" : 2560
+         }
+      ],
+      "place_id" : "ChIJM7dqdnLYhVQRDFMjApdzlZc",
+      "plus_code" : {
+         "compound_code" : "633R+HJ New Westminster, BC, Canada",
+         "global_code" : "84XV633R+HJ"
+      },
+      "rating" : 4.3,
+      "reference" : "ChIJM7dqdnLYhVQRDFMjApdzlZc",
+      "reservable" : true,
+      "reviews" : [
+         {
+            "author_name" : "Philip Pow",
+            "author_url" : "https://www.google.com/maps/contrib/110999175876247987048/reviews",
+            "language" : "en",
+            "original_language" : "en",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ACB-R5Rb21S2yE7cFMtmcAkNTBb2qzzaAP7JVSicYZx9XQ=s128-c0x00000000-cc-rp-mo-ba2",
+            "rating" : 5,
+            "relative_time_description" : "9 months ago",
+            "text" : "Sushi Yen is now Yen.  Had the chicken teriyaki, red dragon roll and avocado roll. Great food, super fresh. I liked how I had the option for vegetables, rice or noodles to go with my chicken teriyaki.  Not your normal sushi restaurant that serves a weak teriyaki. This teriyaki is well made!",
+            "time" : 1654978561,
+            "translated" : false
+         },
+         {
+            "author_name" : "Juliana Oliveira",
+            "author_url" : "https://www.google.com/maps/contrib/104510117638520753546/reviews",
+            "language" : "en",
+            "original_language" : "en",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ACB-R5QB46mrNScLEp3_5M3RyT70RA2p0A54VXheqcnhS9c=s128-c0x00000000-cc-rp-mo-ba4",
+            "rating" : 5,
+            "relative_time_description" : "2 months ago",
+            "text" : "Delicious and fresh food! Also one of the best (if not the best) miso soup I've tried.\n\nUpdate: have been there a couple times now and can easily say this is one of, if not the best sushi place in the neighborhood. Highly recommended",
+            "time" : 1673621530,
+            "translated" : false
+         },
+         {
+            "author_name" : "Carla Cabrera",
+            "author_url" : "https://www.google.com/maps/contrib/115436015707634081941/reviews",
+            "language" : "en",
+            "original_language" : "en",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ACB-R5Tk8L_a0QgHDS88Vmv1MbH2-0vEwgZ5xU7qKQZU=s128-c0x00000000-cc-rp-mo-ba5",
+            "rating" : 4,
+            "relative_time_description" : "a month ago",
+            "text" : "I asked for a takeout of chicken teriyaki bento, it didn't take so long (around 15 minutes), friendly service, good amount of food, fresh products and really delicious, I was really surprised about the cost benefit of this dish. I will definitely go back to try the sushi, good that my workplace is near by.",
+            "time" : 1677042890,
+            "translated" : false
+         },
+         {
+            "author_name" : "Kenneth Abad",
+            "author_url" : "https://www.google.com/maps/contrib/104009755963480788999/reviews",
+            "language" : "en",
+            "original_language" : "en",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ACB-R5RLbTLpLig_Nqwtv9ZFbgJKDvU1CMuJPmPPSHnUFg=s128-c0x00000000-cc-rp-mo-ba4",
+            "rating" : 5,
+            "relative_time_description" : "a month ago",
+            "text" : "Huge bento with generous amount of sashimi. Each side was well made. Great value",
+            "time" : 1676150752,
+            "translated" : false
+         },
+         {
+            "author_name" : "Penny Rusty Sophie",
+            "author_url" : "https://www.google.com/maps/contrib/110429535549061741595/reviews",
+            "language" : "en",
+            "original_language" : "en",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ACB-R5SGkhzODsI_Vjo-gauRo0sM7mcxvx7ejvSpYmBTMw=s128-c0x00000000-cc-rp-mo-ba6",
+            "rating" : 3,
+            "relative_time_description" : "3 years ago",
+            "text" : "It’s been quite a few years since I last ate at Sushi Yen so I figured it would be a good time to revisit this little eatery located in New West.\n\nI had my eye set on trying their Donkatsu Curry Pork Cutlet ($10.90). While it’s far from the katsu curry that we’ve had in Japan, this basic dish is rather large and filling. The pork cutlet is thin and a bit dry but they’ve made up for this by providing a lot of curry sauce in the dish. I was a bit surprised that I actually wound up finishing all of the curry sauce here (so perhaps it was better than I initially thought). The sharp flavour of the ginger actually worked well in this dish given the mildness of the curry.\n\nOn a subsequent visit, I tried their Aji Fri ($5.50) which they described as yellow stripe scad which is a type of horse mackerel. Served breaded and deep-fried on top of a spring mix salad with a mayo sauce, I found the crisp coating to be pleasant and this almost had me thinking about fish and chips (sans chips).\n\nThe Salmon Tataki ($10.90) that i also ordered turned out really well. Served with a tart ponzu sauce, I really enjoyed how tender the salmon turned out in this dish.\n\nOn their special board, I noticed that they had a Salmon Poke Bowl ($12.50) so I had to give that a go. This bowl includes the salmon sashimi, ginger, spring mix salad, paprika, cucumbers, green onions, sweet onions, seaweed salad, crab meat, and shoyu sauce. I wouldn’t really say that I could detect the shoyu sauce as it was a bit overwhelmed by the overly sweet salad dressing but it was a nice try.\n\nOn my last visit, I tried their Spicy Salmon Sashimi ($10.90) which included 10 pieces of salmon with cucumbers, spring mix, sesame, and coated with a sweet and spicy sauce.\n\nThey have a small patio in front of the shop and I took advantage of the good summer weather we’ve been having to try out some of their sushi rolls: Unagi Roll ($5) and Alaska Roll ($6.50) with teriyaki sauce and wasabi mayo. The rolls were filling… mostly because they had a bit too much rice for my preferences. Not bad for the price.\n\nOverall, some good items on the somewhat limited menu. I would like to see more types of sashimi available.",
+            "time" : 1565839068,
+            "translated" : false
+         }
+      ],
+      "serves_beer" : true,
+      "serves_brunch" : false,
+      "serves_dinner" : true,
+      "serves_lunch" : true,
+      "serves_wine" : true,
+      "takeout" : true,
+      "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+      "url" : "https://maps.google.com/?cid=10922763563670131468",
+      "user_ratings_total" : 121,
+      "utc_offset" : -420,
+      "vicinity" : "41 6th Street, New Westminster",
+      "website" : "https://sites.google.com/view/sushiyen/home",
+      "wheelchair_accessible_entrance" : true
+   },
+   "status" : "OK"
+}
