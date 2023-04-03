@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/maps">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="375dp"
-        android:layout_weight="1.0"
-        android:orientation="vertical"
-        app:cardCornerRadius="10dp"
-        android:elevation="30dp"
         android:layout_gravity="center_horizontal|center_vertical"
-
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
 
-        <fragment
-            xmlns:map="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+        android:layout_weight="1.0"
+        android:elevation="30dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="10dp">
+
+                <fragment
+                    xmlns:map="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -111,7 +112,6 @@
             </TextView>
 
 
-
             <ScrollView
                 android:id="@+id/scrollHours"
                 android:layout_width="171dp"
@@ -123,13 +123,13 @@
                 app:layout_constraintStart_toEndOf="@+id/scrollMap"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.907">
+
                 <TextView
                     android:id="@+id/textHoursMap"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="hours"
-                    android:textColor="@color/black">
-                </TextView>
+                    android:textColor="@color/black"></TextView>
 
             </ScrollView>
 
@@ -194,11 +194,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_weight="1.0"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
+        android:layout_weight="1.0"
 
         app:cardCornerRadius="15dp">
 
@@ -215,3 +215,5 @@
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>
+
+

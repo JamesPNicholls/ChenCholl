@@ -17,11 +17,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.jar.JarException;
-import com.squareup.picasso.Picasso;
-
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class mapRecycleViewAdp extends RecyclerView.Adapter<mapRecycleViewAdp.MyViewHolder>{
     Context context;
@@ -72,7 +67,7 @@ public class mapRecycleViewAdp extends RecyclerView.Adapter<mapRecycleViewAdp.My
                     if(mapInterface != null){
                         int position = getAdapterPosition();
                         if(position != RecyclerView.NO_POSITION){
-                            mapInterface.onItemClick(position);
+                            mapInterface.onItemClick(position, view);
                         }
                     }
                 }

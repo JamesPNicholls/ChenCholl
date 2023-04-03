@@ -164,7 +164,7 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
     }
 
     public void getHotelImage(String ref){
-        String url = _urlMaker.getPicUrl(ref);
+        String url = _urlMaker.getPicUrl(ref,400);
         queue = Volley.newRequestQueue(this);
         ImageView imageView = findViewById(R.id.hotel_image);
         requestIm = new ImageRequest(url, new Response.Listener<Bitmap>() {

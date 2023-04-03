@@ -5,12 +5,19 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -54,10 +61,14 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
     private restDetails _restDetails = new restDetails();
     private ArrayList<CRestImage> cRestImages = new ArrayList<>();
 
-    private ImageLoader imageLoader;
+    PopupWindow popupWindow;
+    ImageView popView;
+
 
     RequestQueue requestQueue;
     JsonObjectRequest jsonObjectRequest;
+
+    ArrayList<PopupWindow> popupWindowArrayList = new ArrayList<PopupWindow>();
 
 
     @Override
@@ -71,8 +82,6 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
         rest_Name  = intent.getStringExtra("rest_name");
         place_id   = intent.getStringExtra("place_id");
 
-        RecyclerView recyclerView = findViewById(R.id.recMapImage);
-
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -81,6 +90,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this);
 
         getRestDetails();
+
 
     }
 
@@ -259,7 +269,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
     void setUpImage(){
 
         for(String photo_id : _restDetails.getPhotoRef()){
-            String url = _urlMaker.getPicUrl(photo_id);
+            String url = _urlMaker.getPicUrl(photo_id,1000);
 
             requestQueue = Volley.newRequestQueue(this);
 
@@ -268,7 +278,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
                 public void onResponse(Bitmap response) {
                     try {
 
-                        cRestImages.add(new CRestImage(response));
+                        cRestImages.add(new CRestImage(response, url ));
                         if(cRestImages.size() == _restDetails.getPhotoRef().size()){
 
                             RecyclerView recyclerView = findViewById(R.id.recMapImage);
@@ -280,7 +290,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
                         e.printStackTrace();
                     }
                 }
-                },100,100, Bitmap.Config.ALPHA_8,
+                },1000,1000, Bitmap.Config.ALPHA_8,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -296,7 +306,29 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
     }
 
     @Override
-    public void onItemClick(int pos) {
+    public void onItemClick(int pos, View view) {
        // On click event when the
+        String url = cRestImages.get(pos).getUrl();
+        if(popupWindow == null){
+            LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+            View popupView = inflater.inflate(R.layout.img_popout, null);
+            popupWindow = new PopupWindow(popupView, 1000,1000, false);
+            popupWindow.showAtLocation(view, Gravity.CENTER, 0,0);
+
+            popView = (ImageView) popupView.findViewById(R.id.popImgView);
+            popView.setImageBitmap(cRestImages.get(pos).getImg());
+
+            popView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    popupWindow.dismiss();
+                    popupWindow = null;
+                }
+            });
+
+        }
+
+
+
     }
 }

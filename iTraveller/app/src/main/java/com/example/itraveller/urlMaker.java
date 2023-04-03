@@ -50,10 +50,10 @@ public class urlMaker {
                     + "&key=" + key;
         return url;
     }
-    public String getPicUrl(String ref){
+    public String getPicUrl(String ref, int width){
         String ret = urlStartPhot
-                + "maxwidth=100"
-                    + "&photo_reference=" + ref
+                + "maxwidth=" + width
+                + "&photo_reference=" + ref
                 + "&key="+key;
         return ret;
     }
