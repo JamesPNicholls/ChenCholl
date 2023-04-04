@@ -71,8 +71,6 @@ import org.w3c.dom.Text;
 public class Hotels extends AppCompatActivity {
 
     private TextView addressText;
-    private Button searchButton;
-    private Button locationButton;
     private LocationRequest locationRequest;
     private ArrayList<String> hotelNames = new ArrayList<String>();
     private ArrayList<String> hotelRef   = new ArrayList<String>();
@@ -110,6 +108,7 @@ public class Hotels extends AppCompatActivity {
 
     TextView seekText, seekTextV;
 
+    String[] current_Location_LL;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -205,7 +204,14 @@ public class Hotels extends AppCompatActivity {
                 int index = hotelNames.indexOf(name);
 
                 //check so see if a valid hotel name is selected
-                if(index == -1) {
+                if(name.equals("Using Current Location")) {
+                    intent.putExtra("hotel_name", "Current Location");
+                    intent.putExtra("latLng", current_Location_LL);
+                    intent.putStringArrayListExtra("rest_list", restTypes);
+                    intent.putExtra("hotel_ref", "Current Location");
+                    intent.putExtra("search_radius", seekBar.getProgress());
+                    startActivity(intent);
+                }else if(index == -1 ) {
                     Toast.makeText(Hotels.this, "Please Select a Hotel...", Toast.LENGTH_SHORT).show();
                 } else{
                     String[] ll = hotelLL.get(index);
@@ -224,8 +230,9 @@ public class Hotels extends AppCompatActivity {
         LocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                actv.setText("Using Current Location");
                 getCurrentLocation();
+
             }
         });
 
@@ -569,8 +576,8 @@ public class Hotels extends AppCompatActivity {
                                         int index = locationResult.getLocations().size() - 1;
                                         double latitude = locationResult.getLocations().get(index).getLatitude();
                                         double longitude = locationResult.getLocations().get(index).getLongitude();
-
-                                        addressText.setText("Latitude: "+ latitude + "\n" + "Longitude: "+ longitude);
+                                        current_Location_LL = new String[]{ Double.toString(latitude), Double.toString(longitude)};
+                                        //addressText.setText("Latitude: "+ latitude + "\n" + "Longitude: "+ longitude);
                                     }
                                 }
                             }, Looper.getMainLooper());

@@ -101,18 +101,26 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
         textHotel.setText(hotel_name);
 
         // Populate the restaurants based on type
-        if(rest_type.size() == 0){
-            _urlMaker.urlSet(hotelLL[0],hotelLL[1], search_rad, "restaurant", "");
-            sendAndRequestResponse(_urlMaker.getUrl(""), "");
-        } else{
-            for(String type : rest_type){
-                _urlMaker.urlSet(hotelLL[0],hotelLL[1], search_rad, "restaurant", type);
-                sendAndRequestResponse(_urlMaker.getUrl("restaurant"),type);
-            }
+        if(!hotel_name.equals("Current Location"))
+        {
+            getHotelImage(hotel_ref);
         }
 
+            if(rest_type.size() == 0){
+                _urlMaker.urlSet(hotelLL[0],hotelLL[1], search_rad, "restaurant", "");
+                sendAndRequestResponse(_urlMaker.getUrl(""), "");
+            } else{
+                for(String type : rest_type){
+                    _urlMaker.urlSet(hotelLL[0],hotelLL[1], search_rad, "restaurant", type);
+                    sendAndRequestResponse(_urlMaker.getUrl("restaurant"),type);
+                }
+            }
+
+
+
+
         // Set the image of the chosen hotel
-        getHotelImage(hotel_ref);
+
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navView);
