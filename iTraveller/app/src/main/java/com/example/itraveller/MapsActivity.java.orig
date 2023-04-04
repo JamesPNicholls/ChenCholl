@@ -18,15 +18,18 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+<<<<<<< HEAD
 import android.view.Gravity;
-import android.view.MenuItem;
-import android.widget.Toast;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RatingBar;
 import android.widget.TextView;
+=======
+import android.view.MenuItem;
+import android.widget.Toast;
+>>>>>>> andrew_branch
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -79,9 +82,10 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
     RequestQueue requestQueue;
     JsonObjectRequest jsonObjectRequest;
 
+<<<<<<< HEAD
     ArrayList<PopupWindow> popupWindowArrayList = new ArrayList<PopupWindow>();
 
-
+=======
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
@@ -95,6 +99,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
         }
         return super.onOptionsItemSelected(item);
     }
+>>>>>>> andrew_branch
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +111,11 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
         hotel_Name = intent.getStringExtra("hotel_name");
         rest_Name  = intent.getStringExtra("rest_name");
         place_id   = intent.getStringExtra("place_id");
+<<<<<<< HEAD
         searchRad = Integer.valueOf(intent.getStringExtra("search_radius"));
+=======
+
+>>>>>>> andrew_branch
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -117,6 +126,8 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
 
         getRestDetails();
 
+<<<<<<< HEAD
+=======
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navView);
         drawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -143,6 +154,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
                 return false;
             }
         });
+>>>>>>> andrew_branch
 
     }
 
@@ -319,17 +331,6 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
             textOC.setText("CLOSED");
         }
     }
-	
-	@Override
-    public void onBackPressed(){
-        if(drawerLayout.isDrawerOpen(GravityCompat.START))
-        {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else{
-            super.onBackPressed();
-        }
-    }
 
     // Gets the bitmap images with volley request based on the photo reference strings
     // When the all images are stored popualte the recycle view with them
@@ -397,5 +398,16 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
 
 
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();
+        }
     }
 }

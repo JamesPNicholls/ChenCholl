@@ -25,9 +25,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+<<<<<<< HEAD
 import com.google.android.material.slider.RangeSlider;
+=======
 import com.google.android.material.navigation.NavigationView;
-
+>>>>>>> andrew_branch
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -114,6 +116,8 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
         // Set the image of the chosen hotel
         getHotelImage(hotel_ref);
 
+<<<<<<< HEAD
+=======
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navView);
         drawerToggle = new ActionBarDrawerToggle(this,drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -141,6 +145,7 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
             }
         });
 
+>>>>>>> andrew_branch
 
     }
 
