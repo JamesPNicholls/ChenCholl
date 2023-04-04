@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -42,13 +44,11 @@ public class restRecycleViewAdp extends RecyclerView.Adapter<restRecycleViewAdp.
         holder.tvName.setText(restaurants.get(position).getName());
         holder.tvAddress.setText(restaurants.get(position).getAddress());
         holder.tvType.setText(restaurants.get(position).getType());
+        holder.tvRating.setText(Float.toString(restaurants.get(position).getRating()));
+
+        holder.tvCard.setRadius(10);
+
         String img = restaurants.get(position).getType();
-
-        int drawId = context.getResources().getIdentifier(img, "drawable",
-                context.getPackageName());
-        holder.imageView.setImageResource(drawId);
-
-
     }
 
     @Override
@@ -61,14 +61,15 @@ public class restRecycleViewAdp extends RecyclerView.Adapter<restRecycleViewAdp.
     public static class myViewHolder extends RecyclerView.ViewHolder{
         //grabs all the data and assigns it to the views
 
-        ImageView imageView;
-        TextView  tvName, tvAddress, tvType;
+        TextView  tvName, tvAddress, tvType, tvRating;
+        CardView  tvCard;
 
 
         public myViewHolder(@NonNull View itemView, restRecycleInterface restRecycleInterface) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.imageView);
+            tvCard  = itemView.findViewById(R.id.parent);
+            tvRating = itemView.findViewById(R.id.textRating);
             tvName    = itemView.findViewById(R.id.textViewName);
             tvAddress = itemView.findViewById(R.id.textViewAddress);
             tvType    =itemView.findViewById(R.id.textViewType);

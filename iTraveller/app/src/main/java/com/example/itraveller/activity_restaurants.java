@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.media.Image;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.slider.RangeSlider;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,6 +50,7 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
     String hotel_ref;
     String[] hotelLL;
     String place_id;
+    String search_rad;
 
     ArrayList<String> rest_type;
 
@@ -65,29 +68,30 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
         TextView textHotel = findViewById(R.id.textHotel);
 
 
-
         Intent intent = getIntent();
         hotel_name = intent.getStringExtra("hotel_name");
         hotel_ref  = intent.getStringExtra("hotel_ref");
         hotelLL = intent.getStringArrayExtra("latLng");
         rest_type = intent.getStringArrayListExtra("rest_list");
-
+        search_rad = Integer.toString(intent.getIntExtra("search_radius",50))  ;
 
         textHotel.setText(hotel_name);
 
         // Populate the restaurants based on type
         if(rest_type.size() == 0){
-            _urlMaker.urlSet(hotelLL[0],hotelLL[1], "1000", "restaurant", "");
+            _urlMaker.urlSet(hotelLL[0],hotelLL[1], search_rad, "restaurant", "");
             sendAndRequestResponse(_urlMaker.getUrl(""), "");
         } else{
             for(String type : rest_type){
-                _urlMaker.urlSet(hotelLL[0],hotelLL[1], "1000", "restaurant", type);
+                _urlMaker.urlSet(hotelLL[0],hotelLL[1], search_rad, "restaurant", type);
                 sendAndRequestResponse(_urlMaker.getUrl("restaurant"),type);
             }
         }
 
         // Set the image of the chosen hotel
         getHotelImage(hotel_ref);
+
+
     }
 
     public void handleResponse(JSONObject results, String type){
@@ -97,40 +101,54 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
 
             JSONArray jsonResults = results.getJSONArray("results");
 
-            if( (jsonResults.length()==0) && (rest_type.size() != 0) )
+            if( (jsonResults.length()==0) && (rest_type.size() == 0) )
             {
 
                 CRestaurant rest = new CRestaurant( "No Restaurants found...",
                         "",
-                        "",
+                        "empty",
                         "",
                         new String[]{},
-                        "");
+                        "",
+                        0);
 
                 _restaurants.add(rest);
-            }else{
 
-            for(int i = 0; i < jsonResults.length(); i++) {
-                JSONObject jo = jsonResults.getJSONObject(i);
-                JSONObject geo = jo.getJSONObject("geometry");
-                JSONObject loc = geo.getJSONObject("location");
+            } else if(jsonResults.length()!=0){
+
+                for(int i = 0; i < jsonResults.length(); i++) {
+                    JSONObject jo = jsonResults.getJSONObject(i);
+                    JSONObject geo = jo.getJSONObject("geometry");
+                    JSONObject loc = geo.getJSONObject("location");
 
 
-                JSONArray photos = jo.getJSONArray("photos");
-                JSONObject ref = photos.getJSONObject(0);
+                    JSONArray photos = jo.getJSONArray("photos");
+                    JSONObject ref = photos.getJSONObject(0);
 
-                CRestaurant rest = new CRestaurant(jo.getString("name"),
-                        jo.getString("vicinity"),
+
+                    CRestaurant rest = new CRestaurant(jo.getString("name"),
+                            jo.getString("vicinity"),
+                            type,
+                            ref.getString("photo_reference"),
+                            new String[]{loc.getString("lat"),loc.getString("lng")},
+                            jo.getString("place_id"),
+                            (float) jo.getDouble("rating")
+                            );
+
+                    _restaurants.add(rest);
+                }
+
+                }else{
+                CRestaurant rest = new CRestaurant( "No Restaurants found for Type: ",
                         type,
-                        ref.getString("photo_reference"),
-                        new String[]{loc.getString("lat"),loc.getString("lng")},
-                        jo.getString("place_id")
-                        );
+                        "empty",
+                        "",
+                        new String[]{},
+                        "",
+                        0);
 
                 _restaurants.add(rest);
-
-            }
-            }
+                }
         } catch (JSONException e){
             e.printStackTrace();
         }
@@ -187,13 +205,18 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
 
     @Override
     public void onItemClick(int pos) {
-            Intent intent = new Intent(activity_restaurants.this, MapsActivity.class);
-            intent.putExtra("hotel_name", hotel_name);
-            intent.putExtra("rest_name", _restaurants.get(pos).getName());
-            intent.putExtra("hotel_LL", hotelLL);
-            intent.putExtra("rest_LL", _restaurants.get(pos).getLatLong());
-            intent.putExtra("place_id", _restaurants.get(pos).getPlaceid());
-            startActivity(intent);
+            if(!_restaurants.get(pos).getType().equals("empty")){
+                Intent intent = new Intent(activity_restaurants.this, MapsActivity.class);
+                intent.putExtra("hotel_name", hotel_name);
+                intent.putExtra("rest_name", _restaurants.get(pos).getName());
+                intent.putExtra("hotel_LL", hotelLL);
+                intent.putExtra("rest_LL", _restaurants.get(pos).getLatLong());
+                intent.putExtra("place_id", _restaurants.get(pos).getPlaceid());
+                intent.putExtra("search_radius", search_rad);
+                startActivity(intent);
+            } else{
+                Toast.makeText(this, "Choose a valid restaurant...", Toast.LENGTH_SHORT).show();
+            }
 
 
     }

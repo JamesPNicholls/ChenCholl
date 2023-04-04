@@ -9,4 +9,28 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#aaaaaaaa</color>
+    <color name="c_a">#ffccffff</color>
+    <color name="c_b">#fffccfff</color>
+    <color name="c_p">#ffffccff</color>
+    <color name="c_c">#fffffccf</color>
+    <color name="c_d">#ffffffcc</color>
+    <color name="c_e">#cffffffc</color>
+    <color name="c_f">#ccffffff</color>
+    <color name="c_g">#fccfffff</color>
+    <color name="c_h">#cfcfffff</color>
+    <color name="c_i">#fcfcffff</color>
+    <color name="c_j">#ffcfcfff</color>
+    <color name="c_k">#fffcfcff</color>
+    <color name="c_l">#ffffcfcf</color>
+    <color name="c_m">#fffffcfc</color>
+    <color name="c_n">#cfffffcf</color>
+    <color name="c_o">#cffcffff</color>
+    <color name="c_t">#fcffcfff</color>
+    <color name="c_q">#ffcffcff</color>
+    <color name="c_r">#fffcffcf</color>
+    <color name="c_s">#ffffcffc</color>
+
+
+
+
 </resources>

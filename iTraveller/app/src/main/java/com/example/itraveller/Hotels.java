@@ -28,6 +28,7 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.slider.RangeSlider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -93,6 +95,9 @@ public class Hotels extends AppCompatActivity {
     private ImageButton b_vietnam;
     private ImageButton b_philippines;
 
+    TextView seekText;
+    TextView seekTextV;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,11 +108,10 @@ public class Hotels extends AppCompatActivity {
         // get the reference to the JSON tree
         databaseReference = firebaseDatabase.getReference();
 
-        TextView AddressText = findViewById(R.id.addressText);
+
         Button LocationButton = findViewById(R.id.locationButton);
         Button SearchButton   = findViewById(R.id.searchButton);
-
-
+        SeekBar seekBar = findViewById(R.id.seekBar);
 
 
         locationRequest = LocationRequest.create();
@@ -119,6 +123,7 @@ public class Hotels extends AppCompatActivity {
         // Hotel name auto fill
         getHotelNames();
 
+        // Autofill textview menu function
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this, android.R.layout.select_dialog_item, hotelNames);
         //Getting the instance of AutoCompleteTextView
@@ -127,6 +132,16 @@ public class Hotels extends AppCompatActivity {
         actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
         actv.setTextColor(Color.BLACK);
         // Hotel name auto fill
+
+        //Seekbar functionality
+        seekBar.setOnSeekBarChangeListener(seekBarChangeListener);
+        int progress = seekBar.getProgress();
+        seekText = findViewById(R.id.seekText);
+        seekTextV = findViewById(R.id.seekValue);
+        seekText.setText("Search Radius(m):");
+        seekTextV.setText(Integer.toString(progress));
+
+
 
 
 
@@ -137,7 +152,6 @@ public class Hotels extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Hotels.this, activity_restaurants.class);
                 String name     = actv.getText().toString();
-                String address  = AddressText.getText().toString();
                 int index = hotelNames.indexOf(name);
 
                 //check so see if a valid hotel name is selected
@@ -150,6 +164,7 @@ public class Hotels extends AppCompatActivity {
                     intent.putExtra("latLng",ll);
                     intent.putStringArrayListExtra("rest_list", restTypes);
                     intent.putExtra("hotel_ref", hotelRef.get(index));
+                    intent.putExtra("search_radius", seekBar.getProgress());
                     startActivity(intent);
                 }
 
@@ -391,6 +406,36 @@ public class Hotels extends AppCompatActivity {
 
     }
 
+    SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
+
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            // updated continuously as the user slides the thumb
+            if(progress < 1000)
+            {
+                seekText.setText("Search Radius(m):" );
+                seekTextV.setText(Integer.toString(progress));
+            }else{
+                float km = (float) progress / 1000;
+                seekText.setText("Search Radius(km):");
+                seekTextV.setText(String.format("%.2f",km));
+            }
+
+
+
+
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            // called when the user first touches the SeekBar
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            // called after the user finishes moving the SeekBar
+        }
+    };
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -433,7 +478,6 @@ public class Hotels extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
-                TextView addressText = (TextView) findViewById(R.id.addressText);
 
                 String name = actv.getText().toString();
 
@@ -475,7 +519,7 @@ public class Hotels extends AppCompatActivity {
                                         int index = locationResult.getLocations().size() - 1;
                                         double latitude = locationResult.getLocations().get(index).getLatitude();
                                         double longitude = locationResult.getLocations().get(index).getLongitude();
-                                        addressText = (TextView) findViewById(R.id.addressText);
+
                                         addressText.setText("Latitude: "+ latitude + "\n" + "Longitude: "+ longitude);
                                     }
                                 }

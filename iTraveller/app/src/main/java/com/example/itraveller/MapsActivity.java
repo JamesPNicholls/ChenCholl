@@ -36,6 +36,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -55,6 +57,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
     private ActivityMapsBinding binding;
     private String[] rest_LL, hotel_LL;
     private String   hotel_Name, rest_Name, place_id;
+    int searchRad;
 
     private urlMaker _urlMaker = new urlMaker();
 
@@ -81,6 +84,7 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
         hotel_Name = intent.getStringExtra("hotel_name");
         rest_Name  = intent.getStringExtra("rest_name");
         place_id   = intent.getStringExtra("place_id");
+        searchRad = Integer.valueOf(intent.getStringExtra("search_radius"));
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -154,6 +158,8 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
                                 .include(new LatLng(Double.valueOf(rest_LL[0]), Double.valueOf(rest_LL[1])))
                                 .include(new LatLng(Double.valueOf(hotel_LL[0]), Double.valueOf(hotel_LL[1]))).build();
                         Point point = new Point();
+
+
                         getWindowManager().getDefaultDisplay().getSize(point);
                         mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, point.x, 150, 30));
                     }
