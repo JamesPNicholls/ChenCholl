@@ -29,13 +29,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-
-        android:layout_weight="1.0"
-        android:elevation="30dp"
-        android:orientation="vertical"
-        app:cardCornerRadius="10dp">
-
+        android:layout_marginBottom="10dp">
                 <fragment
                     xmlns:map="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/map"

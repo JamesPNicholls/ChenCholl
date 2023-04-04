@@ -108,6 +108,8 @@ public class Hotels extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
 
+    TextView seekText, seekTextV;
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -157,11 +159,18 @@ public class Hotels extends AppCompatActivity {
         //Seekbar functionality
         seekBar.setOnSeekBarChangeListener(seekBarChangeListener);
         int progress = seekBar.getProgress();
+
+
+
         seekText = findViewById(R.id.seekText);
         seekTextV = findViewById(R.id.seekValue);
         seekText.setText("Search Radius(m):");
         seekTextV.setText(Integer.toString(progress));
 		
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navView);
+        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
