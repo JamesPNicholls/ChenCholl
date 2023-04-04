@@ -4,8 +4,12 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.app.Activity;
@@ -20,6 +24,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
@@ -48,6 +54,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,6 +62,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
+
+
 
 
 public class Hotels extends AppCompatActivity {
@@ -93,10 +102,24 @@ public class Hotels extends AppCompatActivity {
     private ImageButton b_vietnam;
     private ImageButton b_philippines;
 
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ActionBarDrawerToggle drawerToggle;
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(drawerToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotels);
+
 
         // get the instance of the Firebase database
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -116,6 +139,7 @@ public class Hotels extends AppCompatActivity {
         locationRequest.setFastestInterval(2000);
 
 
+
         // Hotel name auto fill
         getHotelNames();
 
@@ -128,9 +152,29 @@ public class Hotels extends AppCompatActivity {
         actv.setTextColor(Color.BLACK);
         // Hotel name auto fill
 
-
-
-
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navView);
+        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch(item.getItemId())
+                {
+                    case R.id.home:{
+                        Intent intent = new Intent(Hotels.this, Hotels.class);
+                        startActivity(intent);
+                        Toast.makeText(Hotels.this, "Home Selected", Toast.LENGTH_SHORT).show();
+                    }
+                    case R.id.logout:{
+                        Toast.makeText(Hotels.this, "Logout Selected", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                return false;
+            }
+        });
 
         SearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -588,5 +632,14 @@ public class Hotels extends AppCompatActivity {
     }
 
 
-
+    @Override
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
 }
