@@ -108,7 +108,10 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
                         Toast.makeText(MapsActivity.this, "Home Selected", Toast.LENGTH_SHORT).show();
                     }
                     case R.id.logout:{
-                        Toast.makeText(MapsActivity.this, "Logout Selected", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                        Toast.makeText(MapsActivity.this, "Logout Successful", Toast.LENGTH_SHORT).show();
                     }
                 }
                 return false;

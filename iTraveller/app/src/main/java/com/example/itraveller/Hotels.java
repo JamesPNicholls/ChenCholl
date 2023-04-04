@@ -169,7 +169,10 @@ public class Hotels extends AppCompatActivity {
                         Toast.makeText(Hotels.this, "Home Selected", Toast.LENGTH_SHORT).show();
                     }
                     case R.id.logout:{
-                        Toast.makeText(Hotels.this, "Logout Selected", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                        Toast.makeText(Hotels.this, "Logout Successful", Toast.LENGTH_SHORT).show();
                     }
                 }
                 return false;
