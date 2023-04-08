@@ -2,6 +2,7 @@ package com.example.itraveller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -59,7 +60,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class  MapsActivity extends FragmentActivity implements OnMapReadyCallback, mapRecycleInterface {
+public class  MapsActivity extends AppCompatActivity implements OnMapReadyCallback, mapRecycleInterface {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
@@ -132,12 +133,14 @@ public class  MapsActivity extends FragmentActivity implements OnMapReadyCallbac
                         Intent intent = new Intent(MapsActivity.this, Hotels.class);
                         startActivity(intent);
                         Toast.makeText(MapsActivity.this, "Home Selected", Toast.LENGTH_SHORT).show();
+                        break;
                     }
                     case R.id.logout:{
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
                         Toast.makeText(MapsActivity.this, "Logout Successful", Toast.LENGTH_SHORT).show();
+                        break;
                     }
                 }
                 return false;

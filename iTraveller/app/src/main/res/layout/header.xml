@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:textColor="#fff"
-        android:text="Name"
+        android:text="Welecom"
         android:textStyle="bold"/>
 
 

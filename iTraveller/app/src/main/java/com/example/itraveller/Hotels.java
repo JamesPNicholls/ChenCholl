@@ -181,12 +181,14 @@ public class Hotels extends AppCompatActivity {
                         Intent intent = new Intent(Hotels.this, Hotels.class);
                         startActivity(intent);
                         Toast.makeText(Hotels.this, "Home Selected", Toast.LENGTH_SHORT).show();
+                        break;
                     }
                     case R.id.logout:{
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
                         Toast.makeText(Hotels.this, "Logout Successful", Toast.LENGTH_SHORT).show();
+                        break;
                     }
                 }
                 return false;

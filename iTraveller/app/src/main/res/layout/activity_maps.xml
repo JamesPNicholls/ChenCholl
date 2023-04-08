@@ -13,8 +13,6 @@
     android:orientation="vertical"
     android:id="@+id/maps">
 
-    <include layout="@layout/toolbar"
-        android:id="@+id/toolbar" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -168,7 +166,7 @@
                 <TextView
                     android:id="@+id/textReviewText"
                     android:layout_width="match_parent"
-                    android:layout_height="17dp"
+                    android:layout_height="wrap_content"
                     android:text="review"
                     android:textSize="16dp"></TextView>
 

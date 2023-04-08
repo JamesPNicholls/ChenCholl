@@ -137,12 +137,14 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
                         Intent intent = new Intent(activity_restaurants.this, Hotels.class);
                         startActivity(intent);
                         Toast.makeText(activity_restaurants.this, "Home Selected", Toast.LENGTH_SHORT).show();
+                        break;
                     }
                     case R.id.logout:{
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
                         Toast.makeText(activity_restaurants.this, "Logout Successful", Toast.LENGTH_SHORT).show();
+                        break;
                     }
                 }
                 return false;
