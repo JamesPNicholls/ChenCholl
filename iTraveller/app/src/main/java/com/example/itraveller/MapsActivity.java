@@ -60,7 +60,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 public class  MapsActivity extends AppCompatActivity implements OnMapReadyCallback, mapRecycleInterface {
+=======
+public class  MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+>>>>>>> 430abf0594d66ca3f677df045ac90aaac8ab49a5
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
@@ -86,7 +90,6 @@ public class  MapsActivity extends AppCompatActivity implements OnMapReadyCallba
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
-    Toolbar toolbar;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -120,10 +123,10 @@ public class  MapsActivity extends AppCompatActivity implements OnMapReadyCallba
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navView);
-        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
