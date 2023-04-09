@@ -60,11 +60,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
+
 public class  MapsActivity extends AppCompatActivity implements OnMapReadyCallback, mapRecycleInterface {
-=======
-public class  MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
->>>>>>> 430abf0594d66ca3f677df045ac90aaac8ab49a5
+
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;

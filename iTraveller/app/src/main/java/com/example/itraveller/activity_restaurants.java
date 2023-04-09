@@ -109,6 +109,7 @@ public class activity_restaurants extends AppCompatActivity implements restRecyc
             if(rest_type.size() == 0){
                 _urlMaker.urlSet(hotelLL[0],hotelLL[1], search_rad, "restaurant", "");
                 sendAndRequestResponse(_urlMaker.getUrl(""), "");
+                sendAndRequestResponse(_urlMaker.getUrl(""), "");
             } else{
                 for(String type : rest_type){
                     _urlMaker.urlSet(hotelLL[0],hotelLL[1], search_rad, "restaurant", type);
